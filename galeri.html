@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 15px;
+        }
+
+        .web-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-top: 5px solid #006636;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .logo-madrasah {
+            width: clamp(45px, 12vw, 53px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .header-text h1 {
+            font-size: clamp(16px, 4.5vw, 18px);
+            color: #004225;
+            margin-bottom: 4px;
+        }
+
+        .header-text p {
+            font-size: clamp(12px, 3vw, 13px);
+            color: #555;
+        }
+
+        .btn-kembali {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ffffff;
+            color: #d32f2f !important;
+            padding: 6px 14px;
+            font-size: clamp(11px, 2.8vw, 12px);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #d32f2f;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-kembali:hover {
+            background-color: #d32f2f;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+        }
+
+        /* Konten Utama */
+        .main-content {
+            padding: 0;
+            position: relative;
+        }
+
+        .content-title {
+            background-color: #006636;
+            color: #ffffff;
+            padding: 12px 15px;
+            font-size: clamp(15px, 4vw, 16px);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tab Navigasi */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 20px 25px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #e8f5ee;
+            color: #006636;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: clamp(12px, 3vw, 13px);
+        }
+
+        .tab-btn.active {
+            background-color: #006636;
+            color: white;
+            box-shadow: 0 2px 6px rgba(0, 102, 54, 0.25);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 0 20px 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Grid Galeri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+            transition: transform 0.3s ease;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img,
+        .gallery-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .video-item {
+            position: relative;
+        }
+
+        .video-item::after {
+            content: '\f04b';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 30px;
+            background-color: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        /* MODAL / POPUP TAMPILAN BESAR */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+        }
+
+        .modal-video {
+            width: 100%;
+            max-width: 800px;
+            max-height: 85vh;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10000;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: #d32f2f;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .footer-banner {
+            background-color: #004225;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: clamp(45px, 12vw, 53px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .footer-info-text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-info-text h2 {
+            font-size: clamp(12px, 3.5vw, 13px);
+            margin-bottom: 4px;
+            color: #ffcc00;
+        }
+
+        .footer-info-text p {
+            font-size: clamp(9px, 2.5vw, 10px);
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: clamp(13px, 3.5vw, 14px);
+            width: clamp(28px, 7vw, 32px);
+            height: clamp(28px, 7vw, 32px);
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #004225;
+        }
+
+        /* Responsif */
+        @media (max-width: 360px) {
+            .header-top {
+                padding: 15px;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .tab-container {
+                margin: 0 15px 20px;
+            }
+            .tab-content {
+                padding: 0 15px 25px;
+            }
+            .close-modal {
+                top: 10px;
+                right: 15px;
+                font-size: 30px;
+            }
+        }
+
+        @media (min-width: 480px) {
+            .footer-banner {
+                justify-content: flex-start;
+                text-align: left;
+            }
+            .social-links {
+                margin-top: 0;
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <div class="header-top">
+            <div class="brand-wrapper">
+                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="logo-madrasah">
+                <div class="header-text">
+                    <h1>Madrasah Aliyah An-Najah</h1>
+                    <p>Rancamaya Cilongok</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="btn-kembali">
+                <i class="fas fa-arrow-left"></i> Kembali 
+            </a>
+        </div>
+
+        <main class="main-content">
+            <h2 class="content-title">GALERI KEGIATAN</h2>
+
+            <!-- Tab Navigasi -->
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="openTab('foto')">
+                    <i class="fas fa-images"></i> Foto
+                </button>
+                <button class="tab-btn" onclick="openTab('video')">
+                    <i class="fas fa-video"></i> Video
+                </button>
+            </div>
+
+            <!-- Konten Foto -->
+            <div id="foto" class="tab-content active">
+                <div class="gallery-grid">
+                    <!-- Contoh Foto -->
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri1.jpg')">
+                        <img src="assets/images/galeri1.jpg" alt="Kegiatan Belajar Mengajar">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri2.jpg')">
+                        <img src="assets/images/galeri2.jpg" alt="Upacara Bendera">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri3.jpg')">
+                        <img src="assets/images/galeri3.jpg" alt="Kegiatan Pramuka">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri4.jpg')">
+                        <img src="assets/images/galeri4.jpg" alt="Ekstrakurikuler Olahraga">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri5.jpg')">
+                        <img src="assets/images/galeri5.jpg" alt="Kunjungan Pendidikan">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri6.jpg')">
+                        <img src="assets/images/galeri6.jpg" alt="Prestasi Siswa">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri7.jpg')">
+                        <img src="assets/images/galeri7.jpg" alt="Kegiatan Keagamaan">
+                    </div>
+                    <div class="gallery-item" onclick="openModal('foto', 'assets/images/galeri8.jpg')">
+                        <img src="assets/images/galeri8.jpg" alt="Kerja Bakti">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konten Video -->
+            <div id="video" class="tab-content">
+                <div class="gallery-grid">
+                    <!-- Contoh Video -->
+                    <div class="gallery-item video-item" onclick="openModal('video', 'assets/videos/video1.mp4', 'assets/images/poster1.jpg')">
+                        <video src="assets/videos/video1.mp4" poster="assets/images/poster1.jpg" preload="metadata"></video>
+                    </div>
+                    <div class="gallery-item video-item" onclick="openModal('video', 'assets/videos/video2.mp4', 'assets/images/poster2.jpg')">
+                        <video src="assets/videos/video2.mp4" poster="assets/images/poster2.jpg" preload="metadata"></video>
+                    </div>
+                    <div class="gallery-item video-item" onclick="openModal('video', 'assets/videos/video3.mp4', 'assets/images/poster3.jpg')">
+                        <video src="assets/videos/video3.mp4" poster="assets/images/poster3.jpg" preload="metadata"></video>
+                    </div>
+                    <div class="gallery-item video-item" onclick="openModal('video', 'assets/videos/video4.mp4', 'assets/images/poster4.jpg')">
+                        <video src="assets/videos/video4.mp4" poster="assets/images/poster4.jpg" preload="metadata"></video>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- MODAL / POPUP TAMPILAN BESAR -->
+        <div id="imageModal" class="modal">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalMedia" class="modal-content" alt="Tampilan besar">
+            <video id="modalVideo" class="modal-content modal-video" controls></video>
+        </div>
+
+        <footer class="footer-banner">
+            <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
+            <div class="footer-info-text">
+                <h2>MA AN-NAJAH CILONGOK</h2>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Fungsi untuk berpindah tab
+        function openTab(tabName) {
+            // Sembunyikan semua konten
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Nonaktifkan semua tombol
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Tampilkan konten yang dipilih dan aktifkan tombolnya
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Fungsi buka modal
+        function openModal(type, source, poster = '') {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalMedia');
+            const modalVideo = document.getElementById('modalVideo');
+
+            // Reset tampilan
+            modalImg.style.display = 'none';
+            modalVideo.style.display = 'none';
+            modalVideo.pause();
+
+            if (type === 'foto') {
+                modalImg.src = source;
+                modalImg.style.display = 'block';
+            } else if (type === 'video') {
+                modalVideo.src = source;
+                modalVideo.poster = poster;
+                modalVideo.style.display = 'block';
+            }
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Mencegah halaman bergeser
+        }
+
+        // Fungsi tutup modal
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modal.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+            document.body.style.overflow = 'auto'; // Kembalikan scroll halaman
+        }
+
+        // Tutup modal jika klik di luar area konten
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Tutup modal dengan tombol ESC
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

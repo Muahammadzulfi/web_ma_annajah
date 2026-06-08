@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 15px;
+        }
+
+        .web-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-top: 5px solid #006636;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Header */
+        .header-top {
+            background-color: #ffffff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .logo-madrasah {
+            width: clamp(45px, 12vw, 53px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .header-text h1 {
+            font-size: clamp(16px, 4.5vw, 18px);
+            color: #004225;
+            margin-bottom: 4px;
+        }
+
+        .header-text p {
+            font-size: clamp(12px, 3vw, 13px);
+            color: #555;
+        }
+
+        .btn-kembali {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #ffffff;
+            color: #d32f2f !important;
+            padding: 6px 14px;
+            font-size: clamp(11px, 2.8vw, 12px);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #d32f2f;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-kembali:hover {
+            background-color: #d32f2f;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+        }
+
+        /* Konten Utama */
+        .main-content {
+            padding: 0;
+            position: relative;
+        }
+
+        .content-title {
+            background-color: #006636;
+            color: #ffffff;
+            padding: 12px 15px;
+            font-size: clamp(15px, 4vw, 16px);
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Kontak Info */
+        .contact-section {
+            padding: 0 20px 25px;
+        }
+
+        .contact-card {
+            background-color: #fbfbfb;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #e8f5ee;
+            color: #006636;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .contact-text h3 {
+            font-size: 14px;
+            color: #004225;
+            margin-bottom: 4px;
+        }
+
+        .contact-text p, .contact-text a {
+            font-size: 13px;
+            color: #444;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            color: #006636;
+            text-decoration: underline;
+        }
+
+        /* Tombol Aksi */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-maps {
+            background-color: #008848;
+            color: white;
+        }
+
+        .btn-maps:hover {
+            background-color: #006636;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 136, 72, 0.3);
+        }
+
+        /* Peta */
+        .map-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 250px;
+            border: 0;
+            display: block;
+        }
+
+        /* Sosial Media */
+        .social-container {
+            text-align: center;
+            padding: 15px;
+            background-color: #fbfbfb;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .social-container h3 {
+            font-size: 14px;
+            color: #004225;
+            margin-bottom: 15px;
+        }
+
+        .social-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .social-btn.tiktok { background-color: #000000; }
+        .social-btn.instagram { background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+        .social-btn.facebook { background-color: #1877f2; }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        .footer-banner {
+            background-color: #004225;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            width: clamp(45px, 12vw, 53px);
+            height: auto;
+            object-fit: contain;
+        }
+
+        .footer-info-text {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-info-text h2 {
+            font-size: clamp(12px, 3.5vw, 13px);
+            margin-bottom: 4px;
+            color: #ffcc00;
+        }
+
+        .footer-info-text p {
+            font-size: clamp(9px, 2.5vw, 10px);
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .social-icon {
+            color: #fff;
+            font-size: clamp(13px, 3.5vw, 14px);
+            width: clamp(28px, 7vw, 32px);
+            height: clamp(28px, 7vw, 32px);
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #004225;
+        }
+
+        /* Responsif */
+        @media (max-width: 360px) {
+            .header-top {
+                padding: 15px;
+            }
+            .contact-section {
+                padding: 0 15px 20px;
+            }
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            .map-container iframe {
+                height: 200px;
+            }
+        }
+
+        @media (min-width: 480px) {
+            .footer-banner {
+                justify-content: flex-start;
+                text-align: left;
+            }
+            .social-links {
+                margin-top: 0;
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <div class="header-top">
+            <div class="brand-wrapper">
+                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="logo-madrasah">
+                <div class="header-text">
+                    <h1>Madrasah Aliyah An-Najah</h1>
+                    <p>Rancamaya Cilongok</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="btn-kembali">
+                <i class="fas fa-arrow-left"></i> Kembali 
+            </a>
+        </div>
+
+        <main class="main-content">
+            <h2 class="content-title">HUBUNGI KAMI</h2>
+
+            <div class="contact-section">
+                <!-- Info Kontak -->
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Alamat</h3>
+                            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/6285851903488" target="_blank">+62 858-5190-3488</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Sabtu: 07.00 - 15.00 WIB<br>Minggu & Hari Libur: Tutup</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Aksi Cepat -->
+                <div class="action-buttons">
+                    <a href="https://wa.me/6285851903488" target="_blank" class="btn-action btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Chat WhatsApp
+                    </a>
+                    <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="btn-action btn-maps">
+                        <i class="fas fa-map-marker-alt"></i> Buka Google Maps
+                    </a>
+                </div>
+
+                <!-- Peta Lokasi (sudah diperbaiki) -->
+                <div class="map-container">
+                    <!-- Ganti kode di bawah ini dengan kode semat asli dari Google Maps Anda -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15853.327442265632!2d109.1421532!3d-7.4021117!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb1b77f777777%3A0x8888888888888888!2sMA%20An-Najah%20Cilongok!5e0!3m2!1sid!2sid!4v1717865432109!5m2!1sid!2sid" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- Media Sosial -->
+                <div class="social-container">
+                    <h3>Ikuti Kami di Media Sosial</h3>
+                    <div class="social-grid">
+                        <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-btn tiktok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-btn instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="footer-banner">
+            <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
+            <div class="footer-info-text">
+                <h2>MA AN-NAJAH CILONGOK</h2>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

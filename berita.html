@@ -131,97 +131,58 @@
             background-color: #005a36;
         }
 
-        footer {
+        .footer-banner {
             background-color: #005a36;
-            border-radius: 20px; 
+            border-radius: 12px; 
             color: white;
-            padding: 14px 12px;
+            padding: 15px 18px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .footer-logo {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
             flex-shrink: 0;
         }
 
-        .footer-info-text h3 {
-            font-size: 12px;
+        .footer-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-info h2 {
+            font-size: 15px;
             font-weight: bold;
-            letter-spacing: 0.3px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        .footer-info-text p {
-            font-size: 8px;
-            line-height: 1.2;
-            opacity: 0.85;
-            font-weight: normal;
+        .footer-info p {
+            font-size: 11px;
+            line-height: 1.5;
+            opacity: 0.9;
         }
 
-        .footer-right-socials {
+        .footer-social {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            gap: 14px;
+            margin-left: auto;
         }
 
-        .social-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .footer-social a {
             color: white;
+            font-size: 18px;
             text-decoration: none;
-            font-size: 7.5px; 
-            word-break: break-all;
-            line-height: 1.2;
+            transition: transform 0.2s;
         }
 
-        .social-icon-box {
-            width: 16px;
-            height: 16px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 9px;
-            flex-shrink: 0;
-            color: white;
+        .footer-social a:hover {
+            transform: scale(1.15);
         }
 
-        .icon-tiktok { background-color: #000000; }
-        .icon-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .icon-facebook { background-color: #1877f2; }
-        .icon-whatsapp { background-color: #25d366; }
-        .icon-maps { background-color: #111111; }
-
-        @media(min-width: 480px) {
-            footer {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .footer-left {
-                flex: 1;
-            }
-            .footer-right-socials {
-                flex: 1.1;
-                border-top: none;
-                padding-top: 0;
-                gap: 4px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -264,39 +225,22 @@
 
     </section>
 
-    <footer>
-        <div class="footer-left">
-            <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
-            <div class="footer-info-text">
-                <h3>MA AN-NAJAH CILONGOK</h3>
-                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
-            </div>
-        </div>
+    <footer class="footer-banner">
+        <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
         
-        <div class="footer-right-socials">
-            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-item">
-                <div class="social-icon-box icon-tiktok"><i class="fab fa-tiktok"></i></div> 
-                <span>https://www.tiktok.com/@madrasahaliyahannajah</span>
-            </a>
-            <a href="https://www.instagram.com/maannajahcilongok/" target="_blank" class="social-item">
-                <div class="social-icon-box icon-instagram"><i class="fab fa-instagram"></i></div> 
-                <span>https://www.instagram.com/maannajahcilongok</span>
-            </a>
-            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-item">
-                <div class="social-icon-box icon-facebook"><i class="fab fa-facebook-f"></i></div> 
-                <span>https://www.facebook.com/share/1LHHm8qtXR/</span>
-            </a>
-            <a href="https://wa.me/6285851903488" target="_blank" class="social-item">
-                <div class="social-icon-box icon-whatsapp"><i class="fab fa-whatsapp"></i></div> 
-                <span>+62 858-5190-3488</span>
-            </a>
-            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-item">
-                <div class="social-icon-box icon-maps"><i class="fas fa-map-marker-alt"></i></div> 
-                <span>https://maps.app.goo.gl/T2KLbH7m4FAVmduU8</span>
-            </a>
+        <div class="footer-info">
+            <h2>MA AN-NAJAH CILONGOK</h2>
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+        </div>
+
+        <div class="footer-social">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
         </div>
     </footer>
-
 </div>
 
 </body>

@@ -19,7 +19,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
 
         .card-container {
@@ -78,7 +78,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 25px; /* Jarak antar baris */
+            gap: 25px;
         }
 
         .watermark {
@@ -86,7 +86,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 40px;
+            font-size: clamp(24px, 8vw, 40px);
             font-weight: bold;
             color: rgba(0, 86, 54, 0.05);
             line-height: 1.2;
@@ -100,7 +100,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            gap: 30px; /* Jarak antar orang dalam satu baris */
+            gap: clamp(15px, 4vw, 30px);
             width: 100%;
             position: relative;
             z-index: 2;
@@ -111,12 +111,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 110px; /* Lebar sama semua */
+            width: clamp(90px, 22vw, 110px);
+            flex: 0 0 auto;
         }
 
         .photo-box {
-            width: 100px;
-            height: 120px;
+            width: 100%;
+            aspect-ratio: 5/6;
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 10px;
@@ -124,26 +125,19 @@
             display: flex; 
             align-items: center; 
             justify-content: center; 
-            /* 🔴 HAPUS WARNA ABU & PUTIH, GANTI KE MERAH SESUAI FOTO */
-            background-color: #d6001c; /* Warna merah pas sama foto */
+            background-color: #d6001c;
         }
 
-        /* 🔴 PERBAIKAN UTAMA: FOTO PAS, TIDAK TERPOTONG, LATAR MERAH */
         .photo-box img {
             width: 100%;
             height: 100%;
-            /* Pakai contain biar seluruh foto masuk, latar kotak jadi merah pas sama foto */
             object-fit: contain; 
             object-position: center; 
-            background-color: transparent; /* Biar tidak ada warna lain */
+            background-color: transparent;
         }
 
-        /* 🔴 HAPUS KELAS WARNA LAIN, SEMUA JADI MERAH */
-        /* .bg-red, .bg-blue, .bg-green dihapus karena semua merah */
-
-        /* 🔴 UKURAN FONT: NAMA BESAR, JABATAN LEBIH KECIL */
         .name-text {
-            font-size: 12px; /* Nama & Gelar lebih besar & tebal */
+            font-size: clamp(10px, 2.8vw, 12px);
             font-weight: bold;
             text-align: center;
             color: #222;
@@ -152,7 +146,7 @@
         }
 
         .position-text {
-            font-size: 9px; /* Jabatan lebih kecil & warna beda */
+            font-size: clamp(8px, 2.2vw, 9px);
             font-weight: normal;
             text-align: center;
             color: #666; 
@@ -163,19 +157,23 @@
         .footer-banner {
             background-color: #005a36;
             color: white;
-            padding: 15px 20px;
+            padding: 15px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            border-radius: 16px 16px 0 0;
+            justify-content: center;
+            border-radius: 16px;
             margin: 10px;
             gap: 15px;
+            text-align: center;
         }
 
         .footer-left {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            width: 100%;
         }
 
         .footer-logo {
@@ -184,21 +182,23 @@
         }
 
         .footer-info-text h2 {
-            font-size: 15px;
+            font-size: clamp(14px, 4vw, 15px);
             font-weight: bold;
             color: #f9d308; 
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
 
         .footer-info-text p {
-            font-size: 11px;
-            line-height: 1.4;
+            font-size: clamp(10px, 2.5vw, 11px);
+            line-height: 1.5;
             opacity: 0.9;
         }
 
         .footer-social-icons {
             display: flex;
-            gap: 8px;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-icon-circle {
@@ -213,12 +213,41 @@
             text-decoration: none;
             font-size: 14px;
             transition: 0.2s;
+            flex-shrink: 0;
         }
 
         .social-icon-circle:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
 
+        /* Penyesuaian tambahan untuk layar sangat kecil */
+        @media (max-width: 360px) {
+            .content {
+                padding: 15px 10px;
+                gap: 20px;
+            }
+
+            .footer-banner {
+                padding: 12px;
+            }
+        }
+
+        /* Penyesuaian untuk layar sedang dan besar */
+        @media (min-width: 480px) {
+            .footer-banner {
+                flex-direction: row;
+                text-align: left;
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+
+            .footer-left {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+                gap: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -267,8 +296,8 @@
                         <img src="assets/images/Indarti.jpg.jpeg" alt="Ibu Indarti">
                     </div>
                     <p class="name-text">Ibu Indarti S.Pd.</p>
-                    <p class="position-text">Wakil Kepala Bidang Kurikulum</p
-                ></div>
+                    <p class="position-text">Wakil Kepala Bidang Kurikulum</p>
+                </div>
             </div>
 
             <!-- Baris 3: 3 Orang -->

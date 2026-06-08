@@ -65,7 +65,7 @@
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.5);
         }
 
-        /* Container Navigasi & Hero Image - Dibuat mengalir penuh */
+        /* Container Navigasi & Hero Image */
         .hero-nav-container {
             position: relative;
             background-color: #005a36; 
@@ -78,7 +78,8 @@
         /* Navigation Bar */
         .nav-bar {
             display: flex;
-            justify-content: space-between; 
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             gap: 6px;
             position: relative;
@@ -87,22 +88,18 @@
 
         /* Wrapper khusus untuk tombol Info Sekolah */
         .nav-dropdown-wrapper {
-            flex: 1;
             position: relative;
-            display: flex;
-            flex-direction: column;
+            display: inline-block;
         }
 
         /* Desain Tombol Menu Normal */
         .nav-item {
-            flex: 1; 
-            width: 100%;
             background-color: #f0f4f2; 
             color: #111111; 
             text-align: center;
-            padding: 6px 2px;
+            padding: 6px 10px;
             border-radius: 20px; 
-            font-size: 10px;
+            font-size: 11px;
             font-weight: bold;
             cursor: pointer;
             text-decoration: none;
@@ -123,45 +120,37 @@
         /* POSISI MENU DROPDOWN */
         .dropdown-menu {
             position: absolute;
-            top: 100%;
+            top: 120%;
             left: 0;
             z-index: 1000;
-            display: none; /* Default awal disembunyikan */
-            width: 100%;
-            min-width: 120px;
+            display: none;
+            width: max-content;
+            min-width: 160px;
             flex-direction: column;
             gap: 6px;
-            padding: 8px 6px; 
-            margin-top: 5px;
+            padding: 8px; 
             background-color: #004225;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            box-sizing: border-box;
         }
 
-        /* KUNCI UTAMA: Menampilkan dropdown saat JavaScript memicu class .show */
+        /* Menampilkan dropdown saat aktif */
         .dropdown-menu.show {
             display: flex;
         }
 
-        /* Mengatur tombol-tombol oval di dalam dropdown */
-        .dropdown-menu a, 
-        .dropdown-menu .dropdown-item {
-            position: static;   
+        /* Item di dalam dropdown */
+        .dropdown-menu a {
             display: block;
             width: 100%;        
-            padding: 6px 4px;   
+            padding: 8px 12px;   
             background-color: #f8f9fa;
             color: #212529;
-            border-radius: 50px; 
-            text-align: center;
+            border-radius: 8px; 
             text-decoration: none;
-            font-size: 10px;    
+            font-size: 11px;    
             font-weight: bold;  
-            line-height: 1.2;
-            white-space: normal; 
-            word-wrap: break-word; 
-            box-sizing: border-box;
+            transition: background 0.2s;
         }
 
         .dropdown-menu a:hover {
@@ -169,19 +158,18 @@
             color: #000503;
         }
 
-        /* CONTAINER BANNER: KOTAK HIJAU UTAMA */
+        /* CONTAINER BANNER */
         .hero-section {
             position: relative;
             border-radius: 12px;     
             overflow: hidden;        
             width: 100%; 
-            height: 290px;           
+            height: 260px;           
             margin-top: 10px;
             border: 3px solid #004225; 
-            box-sizing: border-box;
         }
 
-        /* GAMBAR BANNER: MASUK PAS DI DALAM KOTAK & TIDAK GEPENG */
+        /* GAMBAR BANNER */
         .hero-img {
             width: 100%;
             height: 100%;
@@ -190,7 +178,7 @@
             object-position: center 40%; 
         }
 
-        /* TULISAN SLOGAN: DIPERBESAR SEDIKIT AGAR LEBIH JELAS */
+        /* TULISAN SLOGAN */
         .hero-overlay-text {
             position: absolute;
             top: 10%;                
@@ -235,7 +223,7 @@
         }
 
         .content-title {
-            font-size: 14px; 
+            font-size: 16px; 
             font-weight: bold;
             color: #222222;
             margin-bottom: 15px;
@@ -262,7 +250,7 @@
         }
 
         .kepsek-name {
-            font-size: 11px;
+            font-size: 13px;
             font-weight: bold;
             color: #000000;
             margin-bottom: 20px; 
@@ -270,7 +258,7 @@
 
         /* Teks isi sambutan */
         .sambutan-text {
-            font-size: 12px;
+            font-size: 13px;
             color: #444444;
             line-height: 1.6;
             text-align: justify; 
@@ -279,99 +267,70 @@
         }
 
         .sambutan-text p {
-            margin-bottom: 10px; 
+            margin-bottom: 12px; 
         }
 
-        /* Bagian Footer */
+        /* ========== FOOTER BARU SESUAI GAMBAR ========== */
         .footer-banner {
             background-color: #005a36;
-            border-radius: 20px; 
+            border-radius: 12px; 
             color: white;
-            padding: 14px 12px;
+            padding: 15px 18px;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .footer-logo {
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
             flex-shrink: 0;
         }
 
-        .footer-info-text h2 {
-            font-size: 12px;
+        .footer-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-info h2 {
+            font-size: 15px;
             font-weight: bold;
-            letter-spacing: 0.3px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        .footer-info-text p {
-            font-size: 8px;
-            line-height: 1.2;
-            opacity: 0.85;
-            font-weight: normal;
+        .footer-info p {
+            font-size: 11px;
+            line-height: 1.5;
+            opacity: 0.9;
         }
 
-        .footer-right-socials {
+        .footer-social {
             display: flex;
-            flex-direction: column;
-            gap: 5px;
-            padding-top: 6px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            gap: 14px;
+            margin-left: auto;
         }
 
-        .social-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .footer-social a {
             color: white;
+            font-size: 18px;
             text-decoration: none;
-            font-size: 7.5px; 
-            word-break: break-all;
-            line-height: 1.2;
+            transition: transform 0.2s;
         }
 
-        .social-icon-box {
-            width: 16px;
-            height: 16px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 9px;
-            flex-shrink: 0;
-            color: white;
+        .footer-social a:hover {
+            transform: scale(1.15);
         }
 
-        .icon-tiktok { background-color: #000000; }
-        .icon-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .icon-facebook { background-color: #1877f2; }
-        .icon-whatsapp { background-color: #25d366; }
-        .icon-maps { background-color: #111111; }
-
-        @media(min-width: 480px) {
+        /* Responsif tambahan */
+        @media (max-width: 400px) {
             .footer-banner {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: flex-start;
-                gap: 8px;
+                flex-direction: column;
+                text-align: center;
             }
-            .footer-left {
-                flex: 1;
-            }
-            .footer-right-socials {
-                flex: 1.1;
-                border-top: none;
-                padding-top: 0;
-                gap: 4px;
+            .footer-social {
+                margin: 8px auto 0;
             }
         }
     </style>
@@ -407,9 +366,9 @@
                 </div>
 
                 <a href="ppdb.html" class="nav-item">PPDB</a>
-                <a href="#" class="nav-item">Alumni</a>
-                <a href="#" class="nav-item">Galeri</a>
-                <a href="#" class="nav-item">Kontak</a>
+                <a href="alumni.html" class="nav-item">Alumni</a>
+                <a href="galeri.html" class="nav-item">Galeri</a>
+                <a href="kontak.html" class="nav-item">Kontak</a>
             </nav>
 
             <div class="hero-section">
@@ -428,7 +387,7 @@
                 <h2 class="content-title">Sambutan Kepala Sekolah<br>Madrasah Aliyah An-Najah Cilongok</h2>
                 
                 <div class="kepsek-photo-container">
-                    <img src="assets/images/Panggih.JPG.jpeg"alt="Foto Resmi Kepala Sekolah" class="kepsek-img">
+                    <img src="assets/images/Panggih.JPG.jpeg" alt="Foto Resmi Kepala Sekolah" class="kepsek-img">
                 </div>
                 
                 <div class="kepsek-name">Bapak Panggih Widodo, S.Pd</div>
@@ -446,40 +405,40 @@
             </div>
         </main>
 
+        <!-- ========== FOOTER BARU ========== -->
         <footer class="footer-banner">
-            <div class="footer-left">
-                <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
-                <div class="footer-info-text">
-                    <h2>MA AN-NAJAH CILONGOK</h2>
-                    <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
-                </div>
-            </div>
+            <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
             
-            <div class="footer-right-socials">
-                <a href="https://www.tiktok.com/@madrasahaliyahannajah?is_from_webapp=1&sender_device=pc" target="_blank" class="social-item">
-                    <div class="social-icon-box icon-tiktok"><i class="fab fa-tiktok"></i></div> 
-                    <span>https://www.tiktok.com/@madrasahaliyahannajah</span>
-                </a>
-                <a href="https://www.instagram.com/maannajahcilongok/?utm_source=chatgpt.com" target="_blank" class="social-item">
-                    <div class="social-icon-box icon-instagram"><i class="fab fa-instagram"></i></div> 
-                    <span>https://www.instagram.com/maannajahcilongok</span>
-                </a>
-                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-item">
-                    <div class="social-icon-box icon-facebook"><i class="fab fa-facebook-f"></i></div> 
-                    <span>https://www.facebook.com/share/1LHHm8qtXR/</span>
-                </a>
-                <a href="https://wa.me/6285851903488" target="_blank" class="social-item">
-                    <div class="social-icon-box icon-whatsapp"><i class="fab fa-whatsapp"></i></div> 
-                    <span>+62 858-5190-3488</span>
-                </a>
-                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-item">
-                    <div class="social-icon-box icon-maps"><i class="fas fa-map-marker-alt"></i></div> 
-                    <span>https://maps.app.goo.gl/T2KLbH7m4FAVmduU8</span>
-                </a>
+            <div class="footer-info">
+                <h2>MA AN-NAJAH CILONGOK</h2>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
             </div>
         </footer>
 
     </div>
-    <script src="assets/js/script.js"></script>
+
+    <script>
+        // Script untuk dropdown menu Info Sekolah
+        const btnInfo = document.getElementById('btn-info-sekolah');
+        const dropdownInfo = document.getElementById('dropdown-info');
+
+        btnInfo.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownInfo.classList.toggle('show');
+        });
+
+        // Tutup dropdown jika klik di luar area
+        document.addEventListener('click', function() {
+            dropdownInfo.classList.remove('show');
+        });
+    </script>
 </body>
 </html>
