@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Keunggulan - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 700px;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Header */
+        .header-bar {
+            background-color: #005a36;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .header-icon {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        /* Tombol Kembali */
+        .btn-kembali {
+            background-color: #b90000;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin: 10px 15px;
+            display: inline-block;
+        }
+
+        .btn-kembali i {
+            margin-right: 5px;
+        }
+
+        /* Konten Utama */
+        .content {
+            padding: 20px 15px;
+            border: 1.5px solid #005a36;
+            background-color: #ffffff;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 45px;
+            font-weight: bold;
+            color: rgba(0, 86, 54, 0.05);
+            line-height: 1.2;
+            text-align: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content-title {
+            background-color: #005a36;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Item Program - TEKS DI KIRI, KOTAK FOTO DI KANAN */
+        .program-list {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding: 0 10px;
+        }
+
+        .program-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        /* Bagian Teks Penjelasan */
+        .program-deskripsi {
+            flex: 3; /* Teks lebih lebar */
+        }
+
+        .program-deskripsi h3 {
+            font-size: 15px;
+            color: #005a36;
+            margin-bottom: 8px;
+            background: #e8f5ee;
+            padding: 6px 8px;
+            border-left: 4px solid #005a36;
+        }
+
+        .program-deskripsi p {
+            font-size: 12px;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+        }
+
+        /* KOTAK FOTO / GAMBAR - DI KANAN */
+        .program-foto {
+            flex: 1.2; /* Kotak foto ukuran pas */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .foto-kotak {
+            width: 100%;
+            height: 140px;
+            border: 2px solid #005a36;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #f0f9f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .foto-kotak img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar pas dan rapi */
+        }
+
+        .foto-kotak .teks-kosong {
+            color: #005a36;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* FOOTER - Sesuai desain */
+        .footer-banner {
+            background-color: #005a36;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 16px 16px 0 0;
+            margin: 10px;
+            gap: 15px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: auto;
+        }
+
+        .footer-info-text h2 {
+            font-size: 15px;
+            font-weight: bold;
+            color: #f9d308;
+            margin-bottom: 3px;
+        }
+
+        .footer-info-text p {
+            font-size: 11px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon-circle {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .social-icon-circle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Header -->
+        <div class="header-bar">
+            <div class="header-icon"></div>
+            <span>Program Keunggulan</span>
+        </div>
+
+        <!-- TOMBOL KEMBALI KE HALAMAN UTAMA -->
+        <a href="index.html" class="btn-kembali">
+            <i class="fas fa-arrow-left"></i> Kembali 
+        </a>
+
+        <!-- Isi Konten -->
+        <div class="content">
+            <!-- Tanda Air -->
+            <div class="assets/images/logo.jpg"watermark><br>
+            
+            </div>
+
+            <h2 class="content-title">PROGRAM KEUNGGULAN MA AN-NAJAH CILONGOK</h2>
+
+            <!-- Daftar Program DENGAN KOTAK FOTO DI SAMPING -->
+            <div class="program-list">
+
+                <!-- Program 1 -->
+                <div class="program-item">
+                    <div class="program-deskripsi">
+                        <h3>1. Program Tahfidz Al-Qur'an</h3>
+                        <p>Program Unggulan Tahfidzul Qur'an di MA Annajah Cilongok merupakan program khusus yang dirancang untuk mencetak generasi penghafal Al-Qur'an secara terstruktur tanpa mengesampingkan prestasi akademik formal. Dalam pelaksanaannya, sistem dan metode pembelajaran diintegrasikan secara intensif melalui penargetan hafalan yang terukur selama tiga tahun masa studi. Siswa dibimbing secara berkala menggunakan metode Talaqqi atau Musyafahah, di mana mereka menyetorkan hafalan (ziyadah) dan mengulang hafalan (mura'jah) secara langsung di hadapan ustadz/ustazah pada waktu-waktu kondusif, seperti sebelum atau sesudah kegiatan belajar mengajar. Untuk menjaga kualitas makhraj dan tajwid, madrasah juga mengadakan ujian berkala (munaqosah) pada setiap capaian juz tertentu, yang nantinya diapresiasi melalui prosesi Wisuda Tahfidz dan pemberian sertifikat resmi (syahadah). Selain membentuk karakter siswa yang disiplin dan berakhlakul karimah melalui interaksi intim dengan Al-Qur'an, program ini memberikan manfaat akademis yang sangat besar bagi masa depan lulusannya. Sertifikat resmi dari MA Annajah Cilongok dapat menjadi modal utama siswa untuk melanjutkan ke berbagai Perguruan Tinggi Negeri (PTN) maupun Perguruan Tinggi Keagamaan Islam Negeri (PTKIN) melalui jalur prestasi atau beasiswa tahfidz tanpa tes tertulis. Dengan keterpaduan sistem ini, madrasah tidak hanya berhasil mencetak lulusan yang cerdas secara intelektual, tetapi juga tangguh secara spiritual dan berjiwa penghafal Al-Qur'an.</p>
+                    </div>
+                    <!-- KOTAK FOTO DI SAMPING KANAN -->
+                    <div class="program-foto">
+                        <div class="foto-kotak">
+                            <!-- Ganti 'foto-tahfidz.jpg' dengan nama file gambarmu -->
+                            <img src="assets/foto-tahfidz.jpg" alt="Kegiatan Tahfidz Al-Qur'an" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="program-item">
+                    <div class="program-deskripsi">
+                        <h3>
+                            2.Tahfidz Jurumiyah,Imrity</h3>
+                        <p>MA Annajah Cilongok menghadirkan Program Unggulan Tahfidz Nadhom Imrity dan Jurumiyah sebagai wadah strategis dalam mencetak generasi mudarris yang menguasai fondasi gramatikal bahasa Arab. Di tengah tuntutan kurikulum formal, program ini berhasil mengintegrasikan materi madrasah dengan sistem hafalan bait (nadhom) yang dikelola secara sistematis selama masa pendidikan tiga tahun. Aktivitas pembelajaran berpusat pada bimbingan intensif bersistem setoran langsung, di mana setiap santri diwajibkan menambah hafalan baru sekaligus memperkuat ingatan bait yang telah dihafalkan sebelumnya di bawah pengawasan ketat dewan asatidzah. Guna menguji kedalaman hafalan serta pemahaman terhadap kaidah Nahwu, evaluasi kelayakan atau ikhtibar diselenggarakan secara berkala pada setiap penyelesaian bab kitab, yang puncaknya akan dikukuhkan melalui momentum Haflah Takhorruj serta penyerahan ijazah resmi.
+                            Langkah taktis ini tidak sekadar melatih ketajaman berpikir dan kecintaan siswa terhadap literatur Islam klasik, melainkan juga membuka ruang akselerasi karier akademik yang sangat luas. Berbekal ijazah dan sertifikasi kompetensi dari MA Annajah Cilongok, para lulusan memiliki rekam jejak kepakaran yang diakui untuk menembus seleksi jalur khusus di berbagai institusi keagamaan negeri, program beasiswa khusus pesantren, hingga perguruan tinggi di Timur Tengah. Pola pembiasaan yang integratif ini memastikan madrasah melahirkan lulusan berwawasan luas yang tidak hanya unggul pada aspek sains, tetapi juga kokoh secara metodologi keilmuan syariat..</p>
+                    </div>
+                    <!-- KOTAK FOTO DI SAMPING KANAN -->
+                    <div class="program-foto">
+                        <div class="foto-kotak">
+                            <img src="assets/foto-bahasa.jpg" alt="Kegiatan Bahasa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="program-item">
+                    <div class="program-deskripsi">
+                        <h3>3. Keterampilan Ceramah Agama </h3>
+                        <p>Keterampilan Ceramah Agama di MA Annajah Cilongok merupakan salah satu pilar kompetensi praktis yang dirancang untuk melatih kemampuan komunikasi publik (public speaking) sekaligus kesiapan mental siswa sebagai calon dai dan penceramah di masyarakat. Program ini tidak hanya berfokus pada teknik retorika semata, melainkan mengintegrasikan kemampuan olah vokal, penguasaan panggung, serta kedalaman penyusunan materi dakwah secara terstruktur. Dalam pelaksanaannya, siswa dibiasaan menyusun teks ceramah yang bersumber dari dalil-dalil Al-Qur'an dan Hadis, yang kemudian disajikan dengan bahasa yang santun, persuasif, dan adaptif terhadap perkembangan zaman. Untuk mengasah keterampilan ini secara konsisten, madrasah menyediakan wadah latihan berkala berupa kegiatan khitobah mingguan serta penugasan praktik langsung pada momen-momen hari besar Islam.
+                            Selain menumbuhkan rasa percaya diri dan membentuk karakter kepemimpinan yang komunikatif, penguasaan keterampilan ceramah ini memberikan modal sosial dan akademis yang sangat berharga bagi masa depan siswa. Kemampuan menyampaikan pesan-pesan agama secara efektif menjadi nilai tambah yang signifikan, baik saat berbaur di lingkungan pengabdian masyarakat maupun ketika bersaing dalam seleksi perguruan tinggi melalui jalur prestasi minat bakat. Melalui pendekatan yang aplikatif ini, madrasah berkomitmen untuk tidak sekadar melahirkan lulusan yang cerdas secara teoritis, tetapi juga terampil menyebarkan syiar Islam yang menyejukkan, inklusif, dan siap menjadi penggerak kebaikan di tengah umat..</p>
+                    </div>
+                    <!-- KOTAK FOTO DI SAMPING KANAN -->
+                    <div class="program-foto">
+                        <div class="foto-kotak">
+                            <img src="assets/foto-sains.jpg" alt="Kegiatan Sains & Teknologi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="program-item">
+                    <div class="program-deskripsi">
+                        <h3>4. Pendidikan Kepemimpinan</h3>
+                        <p>Pendidikan Kepemimpinan di MA Annajah Cilongok merupakan instrumen strategis yang diintegrasikan ke dalam sistem pendidikan untuk membentuk karakter siswa yang visioner, tangguh, dan bertanggung jawab. Program ini didesain tidak hanya untuk melatih kemampuan manajerial secara teoretis, melainkan menanamkan nilai-nilai kepemimpinan Islam (qiyadah) yang berbasis pada keteladanan, integritas, dan khidmah (pelayanan kepada umat). Dalam implementasinya, penanaman jiwa kepemimpinan ini disalurkan melalui ekosistem organisasi intra-madrasah, latihan kepemimpinan tingkat dasar, hingga pendelegasian santri dalam mengelola berbagai kegiatan kepanitiaan secara mandiri. Melalui simulasi organisasi tersebut, siswa ditempa untuk mengasah kepekaan sosial, ketajaman analisis dalam pengambilan keputusan, serta kecakapan menyelesaikan konflik secara bijaksana.
+                            Di samping mencetak pribadi yang disiplin dan adaptif terhadap dinamika kelompok, internalisasi kecakapan memimpin ini memberikan fondasi yang sangat kokoh bagi masa depan akademik dan organisasi siswa di level yang lebih tinggi. Lulusan yang memiliki rekam jejak kepemimpinan yang matang terbukti lebih siap bersaing di dunia perkuliahan, mudah beradaptasi dalam iklim profesional, serta memiliki peluang besar untuk meraih beasiswa jalur organisasi atau prestasi non-akademik. Melalui keterpaduan pembinaan ini, madrasah berkomitmen melahirkan kader-kader pemimpin masa depan yang tidak hanya matang secara intelektual dan spiritual, tetapi juga cakap berdiri di barisan depan sebagai penggerak perubahan yang membawa kemaslahatan bagi masyarakat luas..</p>
+                    </div>
+                    <!-- KOTAK FOTO DI SAMPING KANAN -->
+                    <div class="program-foto">
+                        <div class="foto-kotak">
+                            <img src="assets/foto-akhlak.jpg" alt="Kegiatan Pembinaan Akhlak" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER - SESUAI DESAIN TERBARU -->
+        <div class="footer-banner">
+            <div class="footer-left">
+                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+                <div class="footer-info-text">
+                    <h2>MA AN-NAJAH CILONGOK</h2>
+                    <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+                </div>
+            </div>
+            
+            <div class="footer-social-icons">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon-circle"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon-circle"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon-circle"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi dan Misi - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* ✅ HEADER HIJAU + TOMBOL KEMBALI SEJAJAR */
+        .header-bar {
+            background-color: #006636;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Jarak tombol dan teks */
+            position: relative;
+        }
+
+        /* ✅ TOMBOL KEMBALI BENTUK PILL, SESUAI GAMBAR */
+        .btn-kembali {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e02d2d;
+          
+            padding: 6px 16px;
+            font-size: 13px;
+            color : #ccc;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid #e71616;
+            border-radius: 20px; /* Membuat ujung bulat */
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+        .btn-kembali:hover {
+            background-color: #d32f2f;
+        
+            box-shadow: 0 2px 8px rgba(235, 11, 11, 0.3);
+        }
+
+        .judul-halaman {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .judul-halaman i {
+            font-size: 10px;
+        }
+
+        /* Bagian Visi */
+        .visi-section {
+            padding: 30px 25px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-circle {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 20px;
+            border: 3px solid #006636;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .logo-circle img {
+            width: 60px;
+            height: auto;
+        }
+
+        .judul-visi {
+            font-size: 22px;
+            color: #006636;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        /* KOTAK PINGGIRAN TEKS VISI */
+        .teks-visi {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #333;
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: justify;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .teks-visi .bahasa-inggris {
+            margin-top: 15px;
+            font-style: italic;
+            color: #444;
+        }
+
+        /* Bagian Misi */
+        .misi-section {
+            padding: 20px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 2px solid #006636;
+            position: relative;
+        }
+        .judul-misi {
+            font-size: 22px;
+            color: #006636;
+            margin-bottom: 15px;
+            text-align: center;
+            background: white;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .daftar-misi {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #222;
+            background: rgba(255,255,255,0.9);
+            padding: 12px 15px 12px 30px;
+            border-radius: 6px;
+            text-align: justify;
+        }
+        .daftar-misi li {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .footer-banner {
+            background-color: #004225;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+        .footer-logo {
+            width: 40px;
+            height: auto;
+        }
+        .footer-info h3 {
+            font-size: 13px;
+            color: #ffcc00;
+        }
+        .social-links {
+            display: flex;
+            gap: 10px;
+            margin-left: auto;
+        }
+        .social-icon {
+            color: #fff;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            background-color: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #004225;
+        }
+
+        /* Responsif */
+        @media (max-width: 480px) {
+            .header-bar {
+                padding: 10px 15px;
+                gap: 10px;
+            }
+            .btn-kembali {
+                font-size: 12px;
+                padding: 5px 12px;
+            }
+            .judul-halaman {
+                font-size: 14px;
+            }
+            .footer-banner {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+            .social-links {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ✅ HEADER: TOMBOL & TEKS SEJAJAR, TIDAK BERTUMPUK -->
+        <div class="header-bar">
+            <a href="index.html" class="btn-kembali">
+                <i class="fas fa-arrow-left"></i> Kembali
+            </a>
+            <div class="judul-halaman">
+                <i class="fas fa-circle"></i> Visi dan Misi
+            </div>
+        </div>
+
+        <div class="visi-section">
+            <div class="logo-circle">
+                <img src="assets/images/logo.jpg" alt="Logo MA An-Najah">
+            </div>
+            <h2 class="judul-visi">Visi</h2>
+            
+            <div class="teks-visi">
+                <p>Bekerja sama dengan masyarakat dan mitra pendidikan secara berkelanjutan untuk menjadi lembaga pendidikan terpandang, bereputasi internasional, dan berkualitas unggul melalui penguatan koneksi serta optimalisasi kurikulum pendidikan yang mengkombinasikan ilmu agama, ilmu umum, dan praktik kewirausahaan guna mencetak pembelajar sepanjang hayat.</p>
+                
+                <p class="bahasa-inggris">Collaborate with the community and education partners in sustainable ways to become an educational institution that is respected, internationally reputable and of superior quality</p>
+            </div>
+        </div>
+
+        <div class="misi-section">
+            <h2 class="judul-misi">Misi</h2>
+            <ol class="daftar-misi">
+                <li>Meningkatkan keimanan dan ketaqwaan kepada Tuhan Yang Maha Esa melalui pembelajaran dan pembinaan keagamaan secara intensif.</li>
+                <li>Menanamkan dan mengembangkan budaya akhlak mulia, disiplin, jujur, dan tanggung jawab dalam setiap aktivitas sekolah.</li>
+                <li>Menyelenggarakan pendidikan dan pengajaran yang berkualitas, inovatif, dan kreatif untuk mengembangkan potensi peserta didik.</li>
+                <li>Mengembangkan keterampilan dan keahlian peserta didik agar memiliki bekal hidup yang mandiri dan produktif.</li>
+                <li>Meningkatkan kerjasama dengan orang tua, masyarakat, dan lembaga terkait dalam rangka memajukan pendidikan.</li>
+                <li>Mengembangkan wawasan pengetahuan dan teknologi agar peserta didik mampu bersaing di era global.</li>
+            </ol>
+        </div>
+
+        <footer class="footer-banner">
+            <img src="assets/images/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+            <div class="footer-info">
+                <h3>MA AN-NAJAH CILONGOK</h3>
+            </div>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>

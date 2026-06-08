@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>Ekstrakurikuler - MA An-Najah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ===== HEADER ATAS (TOMBOL KEMBALI + JUDUL) ===== */
+        .top-bar {
+            background-color: #005a36;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            gap: 15px;
+            margin: 15px;
+            border-radius: 12px;
+        }
+
+        .back-btn {
+            background-color: #b90000;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            transition: transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .back-btn i {
+            font-size: 12px;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            background-color: #a00000;
+        }
+
+        .header-text {
+            font-size: 17px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== KONTEN UTAMA ===== */
+        .content-wrapper {
+            padding: 0 15px 20px;
+        }
+
+        .ekstra-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ekstra-item {
+            background-color: #d1e7dd;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .item-number {
+            font-size: 15px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .item-content {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .photo-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .photo-box {
+            width: 110px;
+            height: 90px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .desc-text {
+            flex: 1;
+            min-width: 200px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: #222;
+            text-align: justify;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #005a36;
+            border-radius: 20px; 
+            color: white;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-info-text h3 {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-text p {
+            font-size: 8px;
+            line-height: 1.2;
+            opacity: 0.85;
+            font-weight: normal;
+        }
+
+        .footer-right-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            /* Biar pas di kanan tetap ada jarak dikit */
+            padding-right: 5px; 
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 7.5px; 
+            line-height: 1.2;
+            /* 🔴 KUNCI: Biar teksnya lurus rata kanan */
+            display: grid;
+            grid-template-columns: 16px 1fr; /* Ikon 16px, sisa ruang buat teks */
+            gap: 8px; /* Jarak ikon dan teks */
+        }
+
+        .social-icon-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .icon-tiktok { background-color: #000000; }
+        .icon-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .icon-facebook { background-color: #1877f2; }
+        .icon-whatsapp { background-color: #25d366; }
+        .icon-maps { background-color: #111111; }
+
+        /* Responsif */
+        @media (min-width: 480px) {
+            .item-content {
+                flex-direction: row;
+            }
+            .photo-group {
+                justify-content: flex-start;
+            }
+            footer {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .footer-left {
+                flex: 1;
+            }
+            .footer-right-socials {
+                flex: 1.1;
+                border-top: none;
+                padding-top: 0;
+                gap: 4px;
+                padding-left: 0;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Bagian Atas: Tombol Kembali + Judul -->
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+        </a>
+        <div class="header-text">Ekstrakurikuler</div>
+    </div>
+
+    <!-- Daftar Ekstrakurikuler -->
+    <div class="content-wrapper">
+        <div class="ekstra-list">
+
+            <!-- POIN 1 -->
+            <div class="ekstra-item">
+                <div class="item-number">1. Bulu Tangkis</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bulu1.jpg" alt="Bulu Tangkis 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bulu2.jpg" alt="Bulu Tangkis 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Ekstrakurikuler bulu tangkis merupakan wadah bagi siswa untuk mengembangkan bakat dan minat dalam olahraga. Kegiatan ini bertujuan meningkatkan kesehatan fisik, kelincahan, dan strategi permainan, serta menanamkan nilai sportivitas, disiplin, dan kerjasama tim. Melalui latihan rutin, siswa dilatih teknik dasar, peraturan permainan, hingga berkesempatan mengikuti berbagai kompetisi, baik tingkat sekolah maupun luar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 2 -->
+            <div class="ekstra-item">
+                <div class="item-number">2. Komputer</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/komp1.jpg" alt="Komputer 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/komp2.jpg" alt="Komputer 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Ekstrakurikuler komputer merupakan wadah bagi siswa untuk mengasah keterampilan teknologi dan literasi digital. Kegiatan ini meliputi pengenalan perangkat keras, perangkat lunak, pengolahan data, desain grafis, hingga pemrograman dasar. Siswa dilatih berpikir logis, kreatif, dan siap menghadapi perkembangan teknologi masa depan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 3 -->
+            <div class="ekstra-item">
+                <div class="item-number">3. Pramuka</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/pramuka1.jpg" alt="Pramuka 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/pramuka2.jpg" alt="Pramuka 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Pramuka adalah kegiatan pendidikan non-formal yang membentuk karakter siswa melalui kepramukaan. Melalui metode kepanduan, siswa belajar kemandirian, gotong royong, cinta alam, kepemimpinan, dan keterampilan hidup. Kegiatan meliputi perkemahan, jelajah alam, latihan baris-berbaris, hingga bakti sosial bagi masyarakat sekitar.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 4 -->
+            <div class="ekstra-item">
+                <div class="item-number">4. Paskibra</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/paskibra1.jpg" alt="Paskibra 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/paskibra2.jpg" alt="Paskibra 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Paskibra melatih kedisiplinan, ketahanan fisik, rasa cinta tanah air, dan kebanggaan kebangsaan. Siswa diajarkan teknik baris-berbaris, tata cara pengibaran bendera, serta nilai-nilai patriotisme. Kegiatan ini membentuk jiwa pemimpin yang tegas, tanggung jawab, dan berwibawa dalam setiap tindakan.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 5 -->
+            <div class="ekstra-item">
+                <div class="item-number">5. Hadroh</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/hadroh1.jpg" alt="Hadroh 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/hadroh2.jpg" alt="Hadroh 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Hadroh merupakan kegiatan seni budaya Islami yang melatih siswa mencintai seni dan syiar agama. Melalui irama rebana dan puji-pujian, siswa belajar kekompakan, kepekaan seni, dan penghayatan nilai keagamaan. Kegiatan ini sering tampil dalam acara keagamaan, peringatan hari besar Islam, maupun kunjungan antar sekolah.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 6 -->
+            <div class="ekstra-item">
+                <div class="item-number">6. Kaligrafi</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/kaligrafi1.jpg" alt="Kaligrafi 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/kaligrafi2.jpg" alt="Kaligrafi 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Kaligrafi melatih ketelitian, kesabaran, dan keindahan seni menulis huruf Arab. Siswa belajar berbagai gaya tulisan, komposisi, dan teknik pewarnaan. Kegiatan ini mengasah kreativitas serta memperdalam kecintaan pada nilai estetika budaya Islam, hingga berprestasi di berbagai ajang lomba.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 7 -->
+            <div class="ekstra-item">
+                <div class="item-number">7. Bahasa Inggris</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bing1.jpg" alt="Bahasa Inggris 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bing2.jpg" alt="Bahasa Inggris 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Ekstrakurikuler Bahasa Inggris menambah wawasan siswa di luar jam pelajaran sekolah. Melalui percakapan, permainan, debat, dan drama, siswa melatih kemampuan berbicara, mendengar, dan kepercayaan diri. Kegiatan ini mempersiapkan siswa berkompetisi di era global dan menguasai bahasa internasional dengan baik.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 8 -->
+            <div class="ekstra-item">
+                <div class="item-number">8. Olahraga Sepak Bola</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bola1.jpg" alt="Sepak Bola 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/bola2.jpg" alt="Sepak Bola 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Sepak bola melatih kekuatan fisik, ketangkasan, strategi, dan kerjasama tim. Siswa belajar sportivitas, disiplin, dan semangat pantang menyerah. Latihan rutin dan pertandingan persahabatan membentuk karakter yang tangguh serta menciptakan kebersamaan antarsiswa.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 9 -->
+            <div class="ekstra-item">
+                <div class="item-number">9. Pencak Silat</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/silat1.jpg" alt="Pencak Silat 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/silat2.jpg" alt="Pencak Silat 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Pencak Silat merupakan seni bela diri asli Indonesia yang mengutamakan keseimbangan fisik dan mental. Siswa belajar teknik pertahanan diri, ketenangan, dan etika budi pekerti. Kegiatan ini menjaga warisan budaya bangsa serta membentuk siswa yang berani, sopan, dan berkarakter kuat.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 10 -->
+            <div class="ekstra-item">
+                <div class="item-number">10. Seni Tari</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/tari1.jpg" alt="Seni Tari 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/tari2.jpg" alt="Seni Tari 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Seni Tari melatih keindahan gerak tubuh, kepekaan irama, dan ekspresi seni budaya. Siswa mempelajari berbagai tarian tradisional maupun kreasi baru, serta makna di setiap gerakan. Kegiatan ini menumbuhkan rasa cinta budaya, kepercayaan diri, dan kreativitas dalam berkarya.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 11 -->
+            <div class="ekstra-item">
+                <div class="item-number">11. Jurnalistik</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/jurnal1.jpg" alt="Jurnalistik 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/jurnal2.jpg" alt="Jurnalistik 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Jurnalistik melatih siswa menulis berita, wawancara, penyuntingan, dan penyebaran informasi. Siswa belajar mengamati fakta, berpikir kritis, serta menyampaikan tulisan yang komunikatif. Hasil karya dipublikasikan di mading, majalah sekolah, maupun media sosial, membentuk jiwa jurnalis yang jujur dan bertanggung jawab.
+                    </div>
+                </div>
+            </div>
+
+            <!-- POIN 12 -->
+            <div class="ekstra-item">
+                <div class="item-number">12. Koperasi Siswa</div>
+                <div class="item-content">
+                    <div class="photo-group">
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/koperasi1.jpg" alt="Koperasi 1">
+                        </div>
+                        <div class="photo-box">
+                            <img src="assets/images/ekstra/koperasi2.jpg" alt="Koperasi 2">
+                        </div>
+                    </div>
+                    <div class="desc-text">
+                        Koperasi Siswa mengenalkan prinsip ekonomi, manajemen usaha, dan kerjasama kekeluargaan. Siswa belajar mengelola keuangan, pelayanan, dan organisasi secara nyata. Kegiatan ini membentuk jiwa wirausaha, kejujuran, kemandirian, dan kemampuan mengelola aset bersama demi kesejahteraan bersama.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER: Teks tautan SUDAH LURUS RATA KANAN -->
+    <footer>
+        <div class="footer-left">
+            <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
+            <div class="footer-info-text">
+                <h3>MA AN-NAJAH CILONGOK</h3>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+        </div>
+        
+        <div class="footer-right-socials">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-item">
+                <div class="social-icon-box icon-tiktok"><i class="fab fa-tiktok"></i></div> 
+                <span>https://www.tiktok.com/@madrasahaliyahannajah</span>
+            </a>
+            <a href="https://www.instagram.com/maannajahcilongok/" target="_blank" class="social-item">
+                <div class="social-icon-box icon-instagram"><i class="fab fa-instagram"></i></div> 
+                <span>https://www.instagram.com/maannajahcilongok</span>
+            </a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-item">
+                <div class="social-icon-box icon-facebook"><i class="fab fa-facebook-f"></i></div> 
+                <span>https://www.facebook.com/share/1LHHm8qtXR/</span>
+            </a>
+            <a href="https://wa.me/6285851903488" target="_blank" class="social-item">
+                <div class="social-icon-box icon-whatsapp"><i class="fab fa-whatsapp"></i></div> 
+                <span>+62 858-5190-3488</span>
+            </a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-item">
+                <div class="social-icon-box icon-maps"><i class="fas fa-map-marker-alt"></i></div> 
+                <span>https://maps.app.goo.gl/T2KLbH7m4FAVmduU8</span>
+            </a>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita - MA An-Najah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: hsl(0, 0%, 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px; 
+            background-color: #f4f4f4;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .top-bar {
+            background-color: #005a36;
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            gap: 15px;
+        }
+
+        .back-btn {
+            /* 🔴 PERUBAHAN: Gaya tombol sesuai gambar kanan */
+            background-color: #b90000; /* Warna merah */
+            color: white; /* Tulisan putih */
+            font-size: 12px; /* Ukuran tulisan */
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px; /* Jarak ikon dan teks */
+            padding: 6px 15px; /* Ruang dalam */
+            border-radius: 20px; /* Membulat */
+            transition: transform 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .back-btn i {
+            font-size: 14px; /* Ukuran ikon panah */
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            background-color: #a00000; /* Merah lebih gelap saat disentuh */
+        }
+
+        .title-box {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+
+        .news-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 4px 0;
+        }
+
+        .news-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 12px;
+            border: 1.5px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .news-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #222222;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 180px;
+            width: 100%;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .read-btn {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: #09aa4c;
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 5px 12px;
+            border-radius: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: background 0.2s;
+        }
+
+        .read-btn:hover {
+            background-color: #005a36;
+        }
+
+        footer {
+            background-color: #005a36;
+            border-radius: 20px; 
+            color: white;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-info-text h3 {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-text p {
+            font-size: 8px;
+            line-height: 1.2;
+            opacity: 0.85;
+            font-weight: normal;
+        }
+
+        .footer-right-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 7.5px; 
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        .social-icon-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .icon-tiktok { background-color: #000000; }
+        .icon-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .icon-facebook { background-color: #1877f2; }
+        .icon-whatsapp { background-color: #25d366; }
+        .icon-maps { background-color: #111111; }
+
+        @media(min-width: 480px) {
+            footer {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .footer-left {
+                flex: 1;
+            }
+            .footer-right-socials {
+                flex: 1.1;
+                border-top: none;
+                padding-top: 0;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+        <!-- 🔴 PERUBAHAN: Teks "Kembali" ditambahkan di dalam tag <a> -->
+        <a href="index.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+        </a>
+        <div class="title-box">Berita</div>
+    </div>
+
+    <section class="news-grid">
+
+        <div class="news-card">
+            <div class="news-title">Hari Ketiga MATSAMA MA An-Najah Cilongok</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/1.jpg" alt="Matsama Hari 3">
+                <a href="#" class="read-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title">Hari Kedua MATSAMA MA Ma'arif Cilongok</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/2.jpg" alt="Matsama Hari 2">
+                <a href="#" class="read-btn">Read More</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title">Masa Ta'aruf MA An-Najah Cilongok</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/3.jpg" alt="Masa Ta'aruf">
+                <a href="#" class="read-btn">Read More</a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
+            <div class="footer-info-text">
+                <h3>MA AN-NAJAH CILONGOK</h3>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+        </div>
+        
+        <div class="footer-right-socials">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-item">
+                <div class="social-icon-box icon-tiktok"><i class="fab fa-tiktok"></i></div> 
+                <span>https://www.tiktok.com/@madrasahaliyahannajah</span>
+            </a>
+            <a href="https://www.instagram.com/maannajahcilongok/" target="_blank" class="social-item">
+                <div class="social-icon-box icon-instagram"><i class="fab fa-instagram"></i></div> 
+                <span>https://www.instagram.com/maannajahcilongok</span>
+            </a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-item">
+                <div class="social-icon-box icon-facebook"><i class="fab fa-facebook-f"></i></div> 
+                <span>https://www.facebook.com/share/1LHHm8qtXR/</span>
+            </a>
+            <a href="https://wa.me/6285851903488" target="_blank" class="social-item">
+                <div class="social-icon-box icon-whatsapp"><i class="fab fa-whatsapp"></i></div> 
+                <span>+62 858-5190-3488</span>
+            </a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-item">
+                <div class="social-icon-box icon-maps"><i class="fas fa-map-marker-alt"></i></div> 
+                <span>https://maps.app.goo.gl/T2KLbH7m4FAVmduU8</span>
+            </a>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

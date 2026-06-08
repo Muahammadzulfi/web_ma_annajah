@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madrasah Aliyah An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8px;
+        }
+
+        /* Container Utama */
+        .web-container {
+            width: 100%;
+            max-width: 650px; 
+            background-color: #f4f4f4;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Header Banner atas */
+        .header-banner {
+            background-color: #005a36;
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            gap: 10px;
+        }
+
+        .logo-madrasah {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .header-text h1 {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+        }
+
+        .hero-text {
+            color: #ffffff;
+            font-style: italic;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Container Navigasi & Hero Image - Dibuat mengalir penuh */
+        .hero-nav-container {
+            position: relative;
+            background-color: #005a36; 
+            border-radius: 10px;
+            padding: 8px 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            gap: 6px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        /* Wrapper khusus untuk tombol Info Sekolah */
+        .nav-dropdown-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Desain Tombol Menu Normal */
+        .nav-item {
+            flex: 1; 
+            width: 100%;
+            background-color: #f0f4f2; 
+            color: #111111; 
+            text-align: center;
+            padding: 6px 2px;
+            border-radius: 20px; 
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            border: none; 
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        /* Warna saat dipencet atau di-hover */
+        .nav-item.active, .nav-item:hover {
+            background-color: #09aa4c; 
+            color: #ffffff; 
+        }
+
+        /* POSISI MENU DROPDOWN */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none; /* Default awal disembunyikan */
+            width: 100%;
+            min-width: 120px;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px 6px; 
+            margin-top: 5px;
+            background-color: #004225;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+        }
+
+        /* KUNCI UTAMA: Menampilkan dropdown saat JavaScript memicu class .show */
+        .dropdown-menu.show {
+            display: flex;
+        }
+
+        /* Mengatur tombol-tombol oval di dalam dropdown */
+        .dropdown-menu a, 
+        .dropdown-menu .dropdown-item {
+            position: static;   
+            display: block;
+            width: 100%;        
+            padding: 6px 4px;   
+            background-color: #f8f9fa;
+            color: #212529;
+            border-radius: 50px; 
+            text-align: center;
+            text-decoration: none;
+            font-size: 10px;    
+            font-weight: bold;  
+            line-height: 1.2;
+            white-space: normal; 
+            word-wrap: break-word; 
+            box-sizing: border-box;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #e2e6ea;
+            color: #000503;
+        }
+
+        /* CONTAINER BANNER: KOTAK HIJAU UTAMA */
+        .hero-section {
+            position: relative;
+            border-radius: 12px;     
+            overflow: hidden;        
+            width: 100%; 
+            height: 290px;           
+            margin-top: 10px;
+            border: 3px solid #004225; 
+            box-sizing: border-box;
+        }
+
+        /* GAMBAR BANNER: MASUK PAS DI DALAM KOTAK & TIDAK GEPENG */
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover; 
+            object-position: center 40%; 
+        }
+
+        /* TULISAN SLOGAN: DIPERBESAR SEDIKIT AGAR LEBIH JELAS */
+        .hero-overlay-text {
+            position: absolute;
+            top: 10%;                
+            left: 4%;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.95), -1px -1px 0px rgba(0, 0, 0, 0.6); 
+            font-style: italic;
+            font-weight: bold;
+            line-height: 1.3;
+            font-size: clamp(16px, 3.8vw, 25px); 
+        }
+
+        /* Area Konten Utama */
+        .main-content {
+            border: 1.5px solid #3b82f6; 
+            background-color: #ffffff;
+            padding: 20px 15px; 
+            text-align: center;
+            position: relative;
+            min-height: 350px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .watermark-bg {
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            opacity: 0.05; 
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content-body {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .content-title {
+            font-size: 14px; 
+            font-weight: bold;
+            color: #222222;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        /* Frame Pasfoto */
+        .kepsek-photo-container {
+            width: 115px;
+            height: 145px;
+            background-color: #6d6565; 
+            margin: 0 auto 10px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            padding: 5px 5px 0 5px;
+        }
+
+        .kepsek-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px 6px 0 0;
+        }
+
+        .kepsek-name {
+            font-size: 11px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px; 
+        }
+
+        /* Teks isi sambutan */
+        .sambutan-text {
+            font-size: 12px;
+            color: #444444;
+            line-height: 1.6;
+            text-align: justify; 
+            padding: 0 10px;
+            margin-top: 10px;
+        }
+
+        .sambutan-text p {
+            margin-bottom: 10px; 
+        }
+
+        /* Bagian Footer */
+        .footer-banner {
+            background-color: #005a36;
+            border-radius: 20px; 
+            color: white;
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-info-text h2 {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.3px;
+            margin-bottom: 2px;
+        }
+
+        .footer-info-text p {
+            font-size: 8px;
+            line-height: 1.2;
+            opacity: 0.85;
+            font-weight: normal;
+        }
+
+        .footer-right-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding-top: 6px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-size: 7.5px; 
+            word-break: break-all;
+            line-height: 1.2;
+        }
+
+        .social-icon-box {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 9px;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .icon-tiktok { background-color: #000000; }
+        .icon-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .icon-facebook { background-color: #1877f2; }
+        .icon-whatsapp { background-color: #25d366; }
+        .icon-maps { background-color: #111111; }
+
+        @media(min-width: 480px) {
+            .footer-banner {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            .footer-left {
+                flex: 1;
+            }
+            .footer-right-socials {
+                flex: 1.1;
+                border-top: none;
+                padding-top: 0;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <header class="header-banner">
+            <img src="assets/logo.jpg" alt="Logo" class="logo-madrasah">
+            <div class="header-text">
+                <h1>Madrasah Aliyah An-Najah</h1>
+                <p>RANCAMAYA CILONGOK</p>
+            </div>
+        </header>
+
+        <div class="hero-nav-container">
+            <nav class="nav-bar">
+                
+                <a href="berita.html" class="nav-item">Berita</a>
+
+                <div class="nav-dropdown-wrapper">
+                    <button class="nav-item" id="btn-info-sekolah">Info Sekolah ▾</button>
+                    
+                    <div class="dropdown-menu" id="dropdown-info">
+                        <a href="#" class="dropdown-item">Profil Sekolah & Sejarah singkat</a>
+                        <a href="visimisi.html" class="dropdown-item">Visi dan Misi</a>
+                       <a href="guru.html" class="dropdown-item">Guru dan Karyawan</a>
+                        <a href="program.html" class="dropdown-item">Program Keahlian</a>
+                        <a href="ektrakurikuler.html" class="dropdown-item">Ekstrakurikuler</a>
+                        <a href="#" class="dropdown-item">Prestasi</a>
+                    </div>
+                </div>
+
+                <a href="ppdb.html" class="nav-item">PPDB</a>
+                <a href="#" class="nav-item">Alumni</a>
+                <a href="#" class="nav-item">Galeri</a>
+                <a href="#" class="nav-item">Kontak</a>
+            </nav>
+
+            <div class="hero-section">
+                <img src="assets/images/halaman2.jpg" alt="halaman1.jpg" class="hero-img">
+                <div class="hero-overlay-text">
+                    Pintar Ngaji, Pintar Sekolah<br>
+                    Pintar Anggah Ungguh
+                </div>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <img src="assets/images/logo.JPG.jpeg" alt="Watermark" class="watermark-bg">
+            
+            <div class="content-body">
+                <h2 class="content-title">Sambutan Kepala Sekolah<br>Madrasah Aliyah An-Najah Cilongok</h2>
+                
+                <div class="kepsek-photo-container">
+                    <img src="assets/images/Panggih.JPG.jpeg"alt="Foto Resmi Kepala Sekolah" class="kepsek-img">
+                </div>
+                
+                <div class="kepsek-name">Bapak Panggih Widodo, S.Pd</div>
+
+                <div class="sambutan-text">
+                    <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    <p>Puji syukur ke hadirat Allah SWT atas segala rahmat dan karunia-Nya sehingga website resmi MA Annajah Cilongok dapat hadir sebagai sarana informasi, komunikasi, dan publikasi bagi seluruh warga madrasah serta masyarakat luas.</p>
+                    <p>Selamat datang di website MA Annajah Cilongok. Kehadiran website ini merupakan wujud komitmen kami dalam mengikuti perkembangan teknologi informasi untuk memberikan pelayanan pendidikan yang lebih baik, transparan, dan mudah diakses. Melalui website ini, kami berharap seluruh informasi mengenai kegiatan madrasah, prestasi peserta didik, program pendidikan, layanan akademik, serta berbagai aktivitas lainnya dapat tersampaikan dengan cepat dan akurat.</p>
+                    <p>MA Annajah Cilongok senantiasa berupaya menjadi lembaga pendidikan yang unggul dalam prestasi, berakhlakul karimah, serta mampu mengintegrasikan ilmu pengetahuan, nilai-nilai keislaman, dan keterampilan kewirausahaan. Kami berkomitmen untuk mencetak generasi yang beriman, berilmu, berkarakter, kreatif, dan siap menghadapi tantangan zaman.</p>
+                    <p>Kami mengucapkan terima kasih kepada seluruh guru, tenaga kependidikan, peserta didik, orang tua, alumni, serta seluruh pihak yang telah memberikan dukungan dan kontribusi bagi kemajuan MA Annajah Cilongok. Semoga website ini dapat menjadi media yang bermanfaat dalam mempererat silaturahmi dan kerja sama antara madrasah dengan masyarakat.</p>
+                    <p>Kami terbuka terhadap berbagai masukan dan saran yang membangun demi kemajuan MA Annajah Cilongok di masa yang akan datang.</p>
+                    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                    <p>Kepala Madrasah MA Annajah Cilongok<br><strong>Bapak Panggih Widodo, S.Pd</strong></p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer-banner">
+            <div class="footer-left">
+                <img src="assets/logo.jpg" alt="Logo Footer" class="footer-logo">
+                <div class="footer-info-text">
+                    <h2>MA AN-NAJAH CILONGOK</h2>
+                    <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+                </div>
+            </div>
+            
+            <div class="footer-right-socials">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah?is_from_webapp=1&sender_device=pc" target="_blank" class="social-item">
+                    <div class="social-icon-box icon-tiktok"><i class="fab fa-tiktok"></i></div> 
+                    <span>https://www.tiktok.com/@madrasahaliyahannajah</span>
+                </a>
+                <a href="https://www.instagram.com/maannajahcilongok/?utm_source=chatgpt.com" target="_blank" class="social-item">
+                    <div class="social-icon-box icon-instagram"><i class="fab fa-instagram"></i></div> 
+                    <span>https://www.instagram.com/maannajahcilongok</span>
+                </a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-item">
+                    <div class="social-icon-box icon-facebook"><i class="fab fa-facebook-f"></i></div> 
+                    <span>https://www.facebook.com/share/1LHHm8qtXR/</span>
+                </a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-item">
+                    <div class="social-icon-box icon-whatsapp"><i class="fab fa-whatsapp"></i></div> 
+                    <span>+62 858-5190-3488</span>
+                </a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-item">
+                    <div class="social-icon-box icon-maps"><i class="fas fa-map-marker-alt"></i></div> 
+                    <span>https://maps.app.goo.gl/T2KLbH7m4FAVmduU8</span>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

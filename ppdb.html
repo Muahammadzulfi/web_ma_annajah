@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPDB - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+        .web-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-top: 5px solid #006636; /* Garis aksen hijau tebal di atas */
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Header & Logo - Menggunakan Flexbox Modern */
+       /* Header Utama diubah susunannya menjadi vertikal ke bawah */
+.header-top {
+    display: flex;
+    flex-direction: column; /* Membuat isi header menyusun ke bawah */
+    align-items: flex-start; /* Membuat semua elemen rata kiri */
+    gap: 12px; /* Jarak antara brand dan tombol kembali */
+    padding: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* Pembungkus khusus agar Logo & Teks Madrasah tetap sejajar horizontal */
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Sedikit penyesuaian tombol kembali agar pas di bawah */
+.btn-kembali {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    color: #d32f2f !important;
+    padding: 6px 14px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #d32f2f;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-top: 5px; /* Memberi sedikit jarak atas */
+}
+.btn-kembali:hover {
+    background-color: #d32f2f;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+}
+        /* Konten Utama */
+        .main-content {
+            padding: 0;
+            position: relative;
+        }
+        .content-title {
+            background-color: #006636;
+            color: #ffffff;
+            padding: 12px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .sambutan-text {
+            padding: 0 20px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #444444;
+            text-align: justify;
+        }
+        .sambutan-text ul {
+            margin: 12px 0 12px 20px;
+        }
+        .sambutan-text li {
+            margin-bottom: 6px;
+        }
+        .banner-box {
+            margin: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .banner-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Formulir & Tombol Daftar */
+        .form-section {
+            margin: 0 20px 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .form-header {
+            background-color: #006636;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .form-body {
+            padding: 25px 20px;
+            text-align: center;
+            background-color: #fbfbfb;
+        }
+        .form-body p {
+            font-size: 13px;
+            color: #555555;
+            margin-bottom: 5px;
+        }
+        .btn-daftar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #008848;
+            color: #fff !important;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border: none;
+            box-shadow: 0 3px 10px rgba(0, 136, 72, 0.2);
+            transition: all 0.3s ease;
+        }
+        .btn-daftar:hover {
+            background-color: #006636;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(0, 102, 54, 0.3);
+        }
+        .note {
+            font-size: 11px;
+            text-align: left;
+            padding: 8px 15px;
+            color: #888;
+            background-color: #f5f5f5;
+            border-top: 1px solid #eeeeee;
+            font-style: italic;
+        }
+
+        /* Footer */
+        .footer-banner {
+            background-color: #004225;
+            color: #fff;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .logo-madrasah {
+            width: 53px; /* Ukuran ini akan membuat logo sejajar rapi dengan tinggi tulisan */
+            height: auto;
+            object-fit: contain;
+        
+        }
+        .footer-logo {
+            width: 53px;  /* Sesuaikan angka ini, misal 40px, 50px, dll */
+            height: auto;
+            object-fit: contain;
+        }
+        .footer-info-text {
+            flex: 1;
+            min-width: 250px;
+        }
+        .footer-info-text h2 {
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #ffcc00; /* Sentuhan warna emas khas logo */
+        }
+        .footer-info-text p {
+            font-size: 10px;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        .social-icon {
+            color: #fff;
+            font-size: 14px;
+            width: 28px;
+            height: 28px;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .social-icon:hover {
+            background-color: #ffcc00;
+            color: #004225;
+        }
+
+        /* Responsif Mobile Ringan */
+        @media (max-width: 480px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 15px;
+            }
+            .btn-kembali {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+            .footer-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .social-links {
+                margin-left: 0;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="web-container">
+        
+        <div class="header-top">
+            <div class="brand-wrapper">
+                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="logo-madrasah">
+                <div class="header-text">
+                    <h1>Madrasah Aliyah An-Najah</h1>
+                    <p>Rancamaya Cilongok</p>
+                </div>
+            </div>
+            
+            <a href="index.html" class="btn-kembali">
+                <i class="fas fa-arrow-left"></i> Kembali 
+            </a>
+        </div>
+
+        <main class="main-content">
+            <h2 class="content-title">PPDB (Penerimaan Peserta Didik Baru)</h2>
+            
+            <div class="sambutan-text">
+                <p>Selamat datang di halaman Penerimaan Peserta Didik Baru (PPDB) MA An-Najah Cilongok. Kami membuka pendaftaran untuk tahun ajaran baru dengan berbagai keunggulan dan fasilitas yang mendukung proses belajar mengajar yang berkualitas.</p>
+                
+                <ul>
+                    <li>Persyaratan umum: Lulusan SMP/MTs atau sederajat</li>
+                    <li>Mengisi formulir pendaftaran secara online atau langsung</li>
+                    <li>Menyerahkan dokumen persyaratan (Ijazah, SKHU, Akta Kelahiran, Kartu Keluarga)</li>
+                    <li>Melaksanakan tes seleksi dan wawancara</li>
+                    <li>Membayar biaya pendaftaran sesuai ketentuan</li>
+                </ul>
+
+                <p>Informasi lebih lanjut dapat dilihat pada brosur di bawah ini, silakan klik tombol pendaftaran untuk mengisi formulir.</p>
+            </div>
+
+            <div class="banner-box">
+                <img src="assets/images/brosure.jpg" alt="Brosur Informasi PPDB">
+            </div>
+
+            <div class="form-section">
+                <div class="form-header">FORMULIR PENDAFTARAN</div>
+                <div class="form-body">
+                    <p>Silakan klik tombol di bawah ini untuk mengisi formulir pendaftaran secara online:</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcQp-a-PGPR3akoDiLYCY4ybEx-Tts45ikRvdLDRdhLmJiqw/viewform" target="_blank" class="btn-daftar">
+                        <i class="fas fa-edit"></i> ISI FORMULIR PENDAFTARAN
+                    </a>
+                </div>
+                <div class="note">* Isi dengan huruf kapital / balok</div>
+            </div>
+
+        </main>
+
+        <footer class="footer-banner">
+            <img src="assets/images/logo.jpg" alt="Logo Footer" class="footer-logo">
+            <div class="footer-info-text">
+                <h2>MA AN-NAJAH CILONGOK</h2>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            </div>
+            <div class="social-links">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru dan Karyawan - MA An-Najah Cilongok</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 650px;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Header */
+        .header-bar {
+            background-color: #005a36;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .header-icon {
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            border-radius: 50%;
+        }
+
+        /* Tombol Kembali */
+        .btn-kembali {
+            background-color: #b90000;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin: 10px 15px;
+            display: inline-block;
+        }
+
+        .btn-kembali i {
+            margin-right: 5px;
+        }
+
+        /* Konten Utama */
+        .content {
+            padding: 20px 15px;
+            border: 1.5px solid #3b82f6;
+            background-color: #ffffff;
+            position: relative;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px; /* Jarak antar baris */
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 40px;
+            font-weight: bold;
+            color: rgba(0, 86, 54, 0.05);
+            line-height: 1.2;
+            text-align: center;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Baris & Kartu */
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px; /* Jarak antar orang dalam satu baris */
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .person-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 110px; /* Lebar sama semua */
+        }
+
+        .photo-box {
+            width: 100px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            /* 🔴 HAPUS WARNA ABU & PUTIH, GANTI KE MERAH SESUAI FOTO */
+            background-color: #d6001c; /* Warna merah pas sama foto */
+        }
+
+        /* 🔴 PERBAIKAN UTAMA: FOTO PAS, TIDAK TERPOTONG, LATAR MERAH */
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            /* Pakai contain biar seluruh foto masuk, latar kotak jadi merah pas sama foto */
+            object-fit: contain; 
+            object-position: center; 
+            background-color: transparent; /* Biar tidak ada warna lain */
+        }
+
+        /* 🔴 HAPUS KELAS WARNA LAIN, SEMUA JADI MERAH */
+        /* .bg-red, .bg-blue, .bg-green dihapus karena semua merah */
+
+        /* 🔴 UKURAN FONT: NAMA BESAR, JABATAN LEBIH KECIL */
+        .name-text {
+            font-size: 12px; /* Nama & Gelar lebih besar & tebal */
+            font-weight: bold;
+            text-align: center;
+            color: #222;
+            line-height: 1.4;
+            margin-bottom: 2px;
+        }
+
+        .position-text {
+            font-size: 9px; /* Jabatan lebih kecil & warna beda */
+            font-weight: normal;
+            text-align: center;
+            color: #666; 
+            line-height: 1.2;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer-banner {
+            background-color: #005a36;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 16px 16px 0 0;
+            margin: 10px;
+            gap: 15px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: auto;
+        }
+
+        .footer-info-text h2 {
+            font-size: 15px;
+            font-weight: bold;
+            color: #f9d308; 
+            margin-bottom: 3px;
+        }
+
+        .footer-info-text p {
+            font-size: 11px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon-circle {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .social-icon-circle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Header -->
+        <div class="header-bar">
+            <div class="header-icon"></div>
+            <span>Guru dan Karyawan</span>
+        </div>
+
+        <!-- TOMBOL KEMBALI KE HALAMAN UTAMA -->
+        <a href="index.html" class="btn-kembali">
+            <i class="fas fa-arrow-left"></i> Kembali 
+        </a>
+
+        <!-- Isi Konten -->
+        <div class="content">
+            <!-- Tanda Air -->
+            <div class="watermark">
+                MADRASAH ALIYAH<br>
+                AN-NAJAH CILONGOK
+            </div>
+
+            <!-- Baris 1: 1 Orang Tengah -->
+            <div class="row">
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Panggih.JPG.jpeg" alt="Bapak Pimpinan">
+                    </div>
+                    <p class="name-text">Bapak Panggih Widodo S.p.d</p>
+                    <p class="position-text">Kepala Sekolah</p>
+                </div>
+            </div>
+
+            <!-- Baris 2: 2 Orang -->
+            <div class="row">
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Evi.jpeg" alt="Ibu Evi">
+                    </div>
+                    <p class="name-text">Ibu Evi Retno Arbayanti, S.Pd.</p>
+                    <p class="position-text">Kepala TU</p>
+                </div>
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Indarti.jpg.jpeg" alt="Ibu Indarti">
+                    </div>
+                    <p class="name-text">Ibu Indarti S.Pd.</p>
+                    <p class="position-text">Wakil Kepala Bidang Kurikulum</p
+                ></div>
+            </div>
+
+            <!-- Baris 3: 3 Orang -->
+            <div class="row">
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Fai.jpg.jpeg" alt="Ibu Nur Faizah">
+                    </div>
+                    <p class="name-text">Nur Faizah, S.Ak.</p>
+                    <p class="position-text">Pembina Pramuka</p>
+                </div>
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Rosidah.jpg.jpeg" alt="Ibu Siti Rosidah">
+                    </div>
+                    <p class="name-text">Ibu Siti Rosidah, S.Si.</p>
+                    <p class="position-text">Wakil Kepala Bidang Kesiswaan</p>
+                </div>
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/NIHAYATUL AROFAH.jpg.jpeg" alt="Ibu Nihayatul">
+                    </div>
+                    <p class="name-text">Nihayatul 'Arofah, S.Pd.</p>
+                    <p class="position-text">Pembina OSIS</p>
+                </div>
+            </div>
+
+            <!-- Baris 4: 3 Orang -->
+            <div class="row">
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Alif.jpg (1).jpeg" alt="Bapak Adika Alif">
+                    </div>
+                    <p class="name-text">Adika Alif Sugani, S.Pd.</p>
+                    <p class="position-text">Pembina Olahraga</p>
+                </div>
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Roobit.jpg.jpeg" alt="Bapak Roobithul">
+                    </div>
+                    <p class="name-text">Roobithul Ummam, S. Ag.</p>
+                    <p class="position-text">BK</p>
+                </div>
+                <div class="person-card">
+                    <div class="photo-box">
+                        <img src="assets/images/Iksan Wahyu.jpg.jpeg" alt="Bapak Iksan Wahyu">
+                    </div>
+                    <p class="name-text">Iksan Wahyu Dwijayanto, S.Kom</p>
+                    <p class="position-text">Operator Madrasah</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer-banner">
+            <div class="footer-left">
+                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+                <div class="footer-info-text">
+                    <h2>MA AN-NAJAH CILONGOK</h2>
+                    <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+                </div>
+            </div>
+            
+            <div class="footer-social-icons">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon-circle"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon-circle"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon-circle"><i class="fas fa-map-marker-alt"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
