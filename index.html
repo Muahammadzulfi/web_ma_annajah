@@ -18,7 +18,7 @@
             min-height: 100vh;
         }
 
-        /* HEADER BARU SESUAI CONTOH */
+        /* HEADER */
         .main-header {
             background-color: #005a36;
             width: 100%;
@@ -29,8 +29,6 @@
             position: sticky;
             top: 0;
             z-index: 999;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
         .logo-area {
@@ -54,12 +52,21 @@
             font-size: 14px;
         }
 
-        /* NAVIGASI DI POJOK KANAN */
+        /* Tombol Menu Hamburger */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* NAVIGASI */
         .nav-bar {
             display: flex;
             align-items: center;
             gap: 25px;
-            flex-wrap: wrap;
         }
 
         .nav-item {
@@ -264,18 +271,58 @@
             transform: scale(1.15);
         }
 
-        /* RESPONSIF */
+        /* RESPONSIF KHUSUS HP */
         @media (max-width: 768px) {
-            .main-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 15px;
+            .menu-toggle {
+                display: block; /* Tampilkan tombol garis tiga di HP */
             }
+
             .nav-bar {
-                gap: 15px;
-                justify-content: center;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #005a36;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 0;
+                display: none; /* Sembunyikan menu secara default */
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
             }
+
+            .nav-bar.active {
+                display: flex; /* Tampilkan menu saat tombol diklik */
+            }
+
+            .nav-item {
+                padding: 14px 25px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-item:hover {
+                border-bottom: 1px solid rgba(255,255,255,0.2);
+                padding-left: 30px;
+            }
+
+            /* Perbaiki dropdown di HP */
+            .dropdown-menu {
+                position: static;
+                background-color: #004a2c;
+                box-shadow: none;
+                margin: 8px 20px;
+                min-width: auto;
+            }
+
+            .dropdown-menu a {
+                color: white;
+            }
+
+            .dropdown-menu a:hover {
+                background-color: #006b33;
+                color: white;
+            }
+
             .hero-section {
                 height: 300px;
                 padding: 0 25px;
@@ -285,14 +332,20 @@
 </head>
 <body>
 
-    <!-- HEADER SESUAI CONTOH -->
+    <!-- HEADER -->
     <header class="main-header">
         <div class="logo-area">
             <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="logo-madrasah">
             <div class="logo-text">MA-ANNAJAH<br>CILONGOK-BANYUMAS</div>
         </div>
 
-        <nav class="nav-bar">
+        <!-- Tombol Menu -->
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigasi -->
+        <nav class="nav-bar" id="mainNav">
             <a href="berita.html" class="nav-item">Berita</a>
 
             <div class="nav-dropdown-wrapper">
@@ -311,7 +364,6 @@
 
             <a href="jadwal.html" class="nav-item">Jadwal</a>
             <a href="ppdb.html" class="nav-item">Pendaftaran</a>
-            <!-- Menu Baru yang Ditambahkan -->
             <a href="alumni.html" class="nav-item">Alumni</a>
             <a href="kontak.html" class="nav-item">Kontak</a>
         </nav>
@@ -366,16 +418,32 @@
     </footer>
 
     <script>
+        // Toggle menu utama
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
         const btnInfo = document.getElementById('btn-info-sekolah');
         const dropdownInfo = document.getElementById('dropdown-info');
 
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            // Tutup dropdown jika menu utama ditutup
+            if (!mainNav.classList.contains('active')) {
+                dropdownInfo.classList.remove('show');
+            }
+        });
+
+        // Toggle dropdown Info Sekolah
         btnInfo.addEventListener('click', function(e) {
             e.stopPropagation();
             dropdownInfo.classList.toggle('show');
         });
 
-        document.addEventListener('click', function() {
-            dropdownInfo.classList.remove('show');
+        // Tutup menu jika klik di luar area
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.nav-bar') && !e.target.closest('.menu-toggle')) {
+                mainNav.classList.remove('active');
+                dropdownInfo.classList.remove('show');
+            }
         });
     </script>
 </body>
