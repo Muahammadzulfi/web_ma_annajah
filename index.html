@@ -16,6 +16,8 @@
         body {
             background-color: #ffffff;
             min-height: 100vh;
+            margin: 0;
+            padding-top: 0;
         }
 
         /* HEADER */
@@ -29,6 +31,8 @@
             position: sticky;
             top: 0;
             z-index: 999;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo-area {
@@ -67,6 +71,7 @@
             display: flex;
             align-items: center;
             gap: 25px;
+            width: 100%;
         }
 
         .nav-item {
@@ -136,17 +141,19 @@
             color: #005a36;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION - DIPERBAIKI AGAR LEBIH TERANG */
         .hero-section {
             width: 100%;
             height: 380px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('assets/images/halaman2.jpg') center/cover no-repeat;
+            /* Hapus gradasi gelap, biarkan gambar asli terang */
+            background: url('assets/images/halaman2.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 0 40px;
             color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Tambah bayangan teks agar tetap terbaca */
+            transition: margin-top 0.3s ease; /* Animasi geser halus */
         }
 
         .hero-title {
@@ -160,13 +167,13 @@
             font-size: 17px;
             max-width: 550px;
             line-height: 1.6;
-            opacity: 0.95;
         }
 
         /* KONTEN UTAMA */
         .main-content {
             padding: 30px 25px;
             background-color: #f8f9fa;
+            transition: margin-top 0.3s ease;
         }
 
         .content-wrapper {
@@ -271,31 +278,28 @@
             transform: scale(1.15);
         }
 
-        /* RESPONSIF KHUSUS HP - DIPERBAIKI */
+        /* RESPONSIF KHUSUS HP */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
 
             .nav-bar {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: #005a36;
+                position: relative; /* Ubah dari absolute menjadi relative */
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0;
-                padding: 10px 0;
-                display: none;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-                /* ✅ Batasi tinggi menu agar tidak penuh layar */
-                max-height: 70vh;
-                overflow-y: auto;
+                padding: 0;
+                max-height: 0; /* Awalnya tertutup */
+                overflow: hidden;
+                background-color: #005a36;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                transition: max-height 0.3s ease; /* Animasi buka-tutup halus */
             }
 
             .nav-bar.active {
-                display: flex;
+                max-height: 400px; /* Buka sesuai tinggi isi menu */
+                padding: 10px 0;
             }
 
             .nav-item {
@@ -308,14 +312,13 @@
                 padding-left: 30px;
             }
 
-            /* ✅ Perbaiki dropdown agar tidak keluar layar */
+            /* Dropdown di HP */
             .dropdown-menu {
                 position: static;
                 background-color: #004a2c;
                 box-shadow: none;
                 margin: 8px 20px;
                 min-width: auto;
-                max-height: none;
             }
 
             .dropdown-menu a {
@@ -330,7 +333,6 @@
             .hero-section {
                 height: 300px;
                 padding: 0 25px;
-                margin-top: 0;
             }
         }
     </style>
