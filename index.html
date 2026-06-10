@@ -15,306 +15,243 @@
 
         body {
             background-color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 8px;
         }
 
-        /* Container Utama */
-        .web-container {
-            width: 100%;
-            max-width: 650px; 
-            background-color: #f4f4f4;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            position: relative;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-
-        /* Header Banner atas */
-        .header-banner {
+        /* HEADER BARU SESUAI CONTOH */
+        .main-header {
             background-color: #005a36;
-            border-radius: 12px;
-            color: white;
+            width: 100%;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo-area {
             display: flex;
             align-items: center;
-            padding: 10px 12px;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-madrasah {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             object-fit: contain;
         }
 
-        .header-text h1 {
-            font-size: 18px;
+        .logo-text {
+            background-color: #007a36;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-weight: bold;
-            letter-spacing: 0.3px;
+            font-size: 14px;
         }
 
-        .hero-text {
-            color: #ffffff;
-            font-style: italic;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), -1px -1px 0px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Container Navigasi & Hero Image */
-        .hero-nav-container {
-            position: relative;
-            background-color: #005a36; 
-            border-radius: 10px;
-            padding: 8px 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            width: 100%;
-        }
-
-        /* Navigation Bar */
+        /* NAVIGASI DI POJOK KANAN */
         .nav-bar {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
             align-items: center;
-            gap: 6px;
-            position: relative;
-            margin-bottom: 4px;
+            gap: 25px;
         }
 
-        /* Wrapper khusus untuk tombol Info Sekolah */
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-item:hover {
+            color: #f0f0f0;
+            border-bottom: 2px solid white;
+        }
+
+        /* DROPDOWN INFO SEKOLAH */
         .nav-dropdown-wrapper {
             position: relative;
             display: inline-block;
         }
 
-        /* Desain Tombol Menu Normal */
-        .nav-item {
-            background-color: #f0f4f2; 
-            color: #111111; 
-            text-align: center;
-            padding: 6px 10px;
-            border-radius: 20px; 
-            font-size: 11px;
-            font-weight: bold;
+        .nav-item.dropdown-btn {
+            background: none;
+            border: none;
             cursor: pointer;
-            text-decoration: none;
-            border: none; 
-            white-space: nowrap;
-            display: inline-flex;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
+            gap: 4px;
         }
 
-        /* Warna saat dipencet atau di-hover */
-        .nav-item.active, .nav-item:hover {
-            background-color: #09aa4c; 
-            color: #ffffff; 
-        }
-
-        /* POSISI MENU DROPDOWN */
         .dropdown-menu {
             position: absolute;
             top: 120%;
-            left: 0;
+            right: 0;
             z-index: 1000;
             display: none;
-            width: max-content;
-            min-width: 160px;
+            min-width: 200px;
             flex-direction: column;
-            gap: 6px;
-            padding: 8px; 
-            background-color: #004225;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            gap: 4px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
-        /* Menampilkan dropdown saat aktif */
         .dropdown-menu.show {
             display: flex;
         }
 
-        /* Item di dalam dropdown */
         .dropdown-menu a {
-            display: block;
-            width: 100%;        
-            padding: 8px 12px;   
-            background-color: #f8f9fa;
-            color: #212529;
-            border-radius: 8px; 
+            padding: 10px 14px;
+            color: #222;
             text-decoration: none;
-            font-size: 11px;    
-            font-weight: bold;  
+            font-size: 14px;
+            border-radius: 4px;
             transition: background 0.2s;
         }
 
         .dropdown-menu a:hover {
-            background-color: #e2e6ea;
-            color: #000503;
+            background-color: #f0f9f3;
+            color: #005a36;
         }
 
-        /* CONTAINER BANNER */
+        /* HERO SECTION */
         .hero-section {
-            position: relative;
-            border-radius: 12px;     
-            overflow: hidden;        
-            width: 100%; 
-            height: 260px;           
-            margin-top: 10px;
-            border: 3px solid #004225; 
-        }
-
-        /* GAMBAR BANNER */
-        .hero-img {
             width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover; 
-            object-position: center 40%; 
-        }
-
-        /* TULISAN SLOGAN */
-        .hero-overlay-text {
-            position: absolute;
-            top: 10%;                
-            left: 4%;
-            color: white;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.95), -1px -1px 0px rgba(0, 0, 0, 0.6); 
-            font-style: italic;
-            font-weight: bold;
-            line-height: 1.3;
-            font-size: clamp(16px, 3.8vw, 25px); 
-        }
-
-        /* Area Konten Utama */
-        .main-content {
-            border: 1.5px solid #3b82f6; 
-            background-color: #ffffff;
-            padding: 20px 15px; 
-            text-align: center;
-            position: relative;
-            min-height: 350px; 
+            height: 380px;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('assets/images/halaman2.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            color: white;
         }
 
-        .watermark-bg {
-            position: absolute;
-            top: 52%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            opacity: 0.05; 
-            pointer-events: none;
-            z-index: 1;
+        .hero-title {
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: bold;
+            margin-bottom: 12px;
+            line-height: 1.2;
         }
 
-        .content-body {
-            position: relative;
-            z-index: 2;
-            width: 100%;
+        .hero-desc {
+            font-size: 17px;
+            max-width: 550px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+
+        /* KONTEN UTAMA */
+        .main-content {
+            padding: 30px 25px;
+            background-color: #f8f9fa;
+        }
+
+        .content-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
         }
 
         .content-title {
-            font-size: 16px; 
+            font-size: 22px;
             font-weight: bold;
-            color: #222222;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            color: #222;
+            margin-bottom: 25px;
+            text-align: center;
         }
 
-        /* Frame Pasfoto */
         .kepsek-photo-container {
-            width: 115px;
-            height: 145px;
-            background-color: #6d6565; 
-            margin: 0 auto 10px auto;
+            width: 130px;
+            height: 160px;
+            background-color: #e9ecef;
+            margin: 0 auto 15px auto;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            padding: 5px 5px 0 5px;
         }
 
         .kepsek-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 6px 6px 0 0;
         }
 
         .kepsek-name {
-            font-size: 13px;
+            font-size: 15px;
             font-weight: bold;
-            color: #000000;
-            margin-bottom: 20px; 
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
         }
 
-        /* Teks isi sambutan */
         .sambutan-text {
-            font-size: 13px;
-            color: #444444;
-            line-height: 1.6;
-            text-align: justify; 
-            padding: 0 10px;
-            margin-top: 10px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+            text-align: justify;
         }
 
         .sambutan-text p {
-            margin-bottom: 12px; 
+            margin-bottom: 15px;
         }
 
-        /* ========== FOOTER BARU SESUAI GAMBAR ========== */
+        /* FOOTER */
         .footer-banner {
             background-color: #005a36;
-            border-radius: 12px; 
             color: white;
-            padding: 15px 18px;
+            padding: 25px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 18px;
             flex-wrap: wrap;
         }
 
         .footer-logo {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
             flex-shrink: 0;
         }
 
         .footer-info {
             flex: 1;
-            min-width: 200px;
+            min-width: 220px;
         }
 
         .footer-info h2 {
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 4px;
+            font-size: 17px;
+            margin-bottom: 6px;
         }
 
         .footer-info p {
-            font-size: 11px;
-            line-height: 1.5;
+            font-size: 13px;
+            line-height: 1.6;
             opacity: 0.9;
         }
 
         .footer-social {
             display: flex;
-            gap: 14px;
-            margin-left: auto;
+            gap: 16px;
         }
 
         .footer-social a {
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             text-decoration: none;
             transition: transform 0.2s;
         }
@@ -323,110 +260,105 @@
             transform: scale(1.15);
         }
 
-        /* Responsif tambahan */
-        @media (max-width: 400px) {
-            .footer-banner {
+        /* RESPONSIF */
+        @media (max-width: 768px) {
+            .main-header {
                 flex-direction: column;
-                text-align: center;
+                gap: 12px;
+                padding: 15px;
             }
-            .footer-social {
-                margin: 8px auto 0;
+            .nav-bar {
+                gap: 18px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-section {
+                height: 300px;
+                padding: 0 25px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="web-container">
-        
-        <header class="header-banner">
-            <img src="assets/logo.jpg" alt="Logo" class="logo-madrasah">
-            <div class="header-text">
-                <h1>Madrasah Aliyah An-Najah</h1>
-                <p>RANCAMAYA CILONGOK</p>
-            </div>
-        </header>
-
-        <div class="hero-nav-container">
-            <nav class="nav-bar">
-                
-                <a href="berita.html" class="nav-item">Berita</a>
-
-                <div class="nav-dropdown-wrapper">
-                    <button class="nav-item" id="btn-info-sekolah">Info Sekolah ▾</button>
-                    
-                    <div class="dropdown-menu" id="dropdown-info">
-                        <a href="#" class="dropdown-item">Profil Sekolah & Sejarah singkat</a>
-                        <a href="visimisi.html" class="dropdown-item">Visi dan Misi</a>
-                       <a href="guru.html" class="dropdown-item">Guru dan Karyawan</a>
-                        <a href="program.html" class="dropdown-item">Program Keahlian</a>
-                        <a href="ektrakurikuler.html" class="dropdown-item">Ekstrakurikuler</a>
-                        <a href="#" class="dropdown-item">Prestasi</a>
-                    </div>
-                </div>
-
-                <a href="ppdb.html" class="nav-item">PPDB</a>
-                <a href="alumni.html" class="nav-item">Alumni</a>
-                <a href="galeri.html" class="nav-item">Galeri</a>
-                <a href="kontak.html" class="nav-item">Kontak</a>
-            </nav>
-
-            <div class="hero-section">
-                <img src="assets/images/halaman2.jpg" alt="halaman1.jpg" class="hero-img">
-                <div class="hero-overlay-text">
-                    Pintar Ngaji, Pintar Sekolah<br>
-                    Pintar Anggah Ungguh
-                </div>
-            </div>
+    <!-- HEADER SESUAI CONTOH -->
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="logo-madrasah">
+            <div class="logo-text">MA-ANNAJAH<br>CILONGOK-BANYUMAS</div>
         </div>
 
-        <main class="main-content">
-            <img src="assets/images/logo.JPG.jpeg" alt="Watermark" class="watermark-bg">
-            
-            <div class="content-body">
-                <h2 class="content-title">Sambutan Kepala Sekolah<br>Madrasah Aliyah An-Najah Cilongok</h2>
-                
-                <div class="kepsek-photo-container">
-                    <img src="assets/images/Panggih.JPG.jpeg" alt="Foto Resmi Kepala Sekolah" class="kepsek-img">
-                </div>
-                
-                <div class="kepsek-name">Bapak Panggih Widodo, S.Pd</div>
+        <nav class="nav-bar">
+            <a href="berita.html" class="nav-item">Berita</a>
 
-                <div class="sambutan-text">
-                    <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                    <p>Puji syukur ke hadirat Allah SWT atas segala rahmat dan karunia-Nya sehingga website resmi MA Annajah Cilongok dapat hadir sebagai sarana informasi, komunikasi, dan publikasi bagi seluruh warga madrasah serta masyarakat luas.</p>
-                    <p>Selamat datang di website MA Annajah Cilongok. Kehadiran website ini merupakan wujud komitmen kami dalam mengikuti perkembangan teknologi informasi untuk memberikan pelayanan pendidikan yang lebih baik, transparan, dan mudah diakses. Melalui website ini, kami berharap seluruh informasi mengenai kegiatan madrasah, prestasi peserta didik, program pendidikan, layanan akademik, serta berbagai aktivitas lainnya dapat tersampaikan dengan cepat dan akurat.</p>
-                    <p>MA Annajah Cilongok senantiasa berupaya menjadi lembaga pendidikan yang unggul dalam prestasi, berakhlakul karimah, serta mampu mengintegrasikan ilmu pengetahuan, nilai-nilai keislaman, dan keterampilan kewirausahaan. Kami berkomitmen untuk mencetak generasi yang beriman, berilmu, berkarakter, kreatif, dan siap menghadapi tantangan zaman.</p>
-                    <p>Kami mengucapkan terima kasih kepada seluruh guru, tenaga kependidikan, peserta didik, orang tua, alumni, serta seluruh pihak yang telah memberikan dukungan dan kontribusi bagi kemajuan MA Annajah Cilongok. Semoga website ini dapat menjadi media yang bermanfaat dalam mempererat silaturahmi dan kerja sama antara madrasah dengan masyarakat.</p>
-                    <p>Kami terbuka terhadap berbagai masukan dan saran yang membangun demi kemajuan MA Annajah Cilongok di masa yang akan datang.</p>
-                    <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
-                    <p>Kepala Madrasah MA Annajah Cilongok<br><strong>Bapak Panggih Widodo, S.Pd</strong></p>
+            <div class="nav-dropdown-wrapper">
+                <button class="nav-item dropdown-btn" id="btn-info-sekolah">
+                    Info Sekolah <i class="fas fa-chevron-down fa-xs"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdown-info">
+                    <a href="#">Profil & Sejarah Singkat</a>
+                    <a href="visimisi.html">Visi & Misi</a>
+                    <a href="guru.html">Guru & Karyawan</a>
+                    <a href="program.html">Program Keahlian</a>
+                    <a href="ektrakurikuler.html">Ekstrakurikuler</a>
+                    <a href="#">Prestasi</a>
                 </div>
             </div>
-        </main>
 
-        <!-- ========== FOOTER BARU ========== -->
-        <footer class="footer-banner">
-            <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+            <a href="jadwal.html" class="nav-item">Jadwal</a>
+            <a href="ppdb.html" class="nav-item">Pendaftaran</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+        <h1 class="hero-title">Madrasah Aliyah<br>An-Najah Cilongok</h1>
+        <p class="hero-desc">Sekolah islami modern dengan pendidikan berkualitas, lingkungan nyaman, dan fasilitas terbaik.</p>
+    </section>
+
+    <!-- KONTEN UTAMA -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <h2 class="content-title">Sambutan Kepala Sekolah</h2>
             
-            <div class="footer-info">
-                <h2>MA AN-NAJAH CILONGOK</h2>
-                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            <div class="kepsek-photo-container">
+                <img src="assets/images/Panggih.JPG.jpeg" alt="Foto Kepala Sekolah" class="kepsek-img">
             </div>
+            
+            <div class="kepsek-name">Bapak Panggih Widodo, S.Pd</div>
 
-            <div class="footer-social">
-                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
+            <div class="sambutan-text">
+                <p>Assalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p>Puji syukur ke hadirat Allah SWT atas segala rahmat dan karunia-Nya sehingga website resmi MA Annajah Cilongok dapat hadir sebagai sarana informasi, komunikasi, dan publikasi bagi seluruh warga madrasah serta masyarakat luas.</p>
+                <p>Selamat datang di website MA Annajah Cilongok. Kehadiran website ini merupakan wujud komitmen kami dalam mengikuti perkembangan teknologi informasi untuk memberikan pelayanan pendidikan yang lebih baik, transparan, dan mudah diakses. Melalui website ini, kami berharap seluruh informasi mengenai kegiatan madrasah, prestasi peserta didik, program pendidikan, layanan akademik, serta berbagai aktivitas lainnya dapat tersampaikan dengan cepat dan akurat.</p>
+                <p>MA Annajah Cilongok senantiasa berupaya menjadi lembaga pendidikan yang unggul dalam prestasi, berakhlakul karimah, serta mampu mengintegrasikan ilmu pengetahuan, nilai-nilai keislaman, dan keterampilan kewirausahaan. Kami berkomitmen untuk mencetak generasi yang beriman, berilmu, berkarakter, kreatif, dan siap menghadapi tantangan zaman.</p>
+                <p>Kami mengucapkan terima kasih kepada seluruh guru, tenaga kependidikan, peserta didik, orang tua, alumni, serta seluruh pihak yang telah memberikan dukungan dan kontribusi bagi kemajuan MA Annajah Cilongok. Semoga website ini dapat menjadi media yang bermanfaat dalam mempererat silaturahmi dan kerja sama antara madrasah dengan masyarakat.</p>
+                <p>Kami terbuka terhadap berbagai masukan dan saran yang membangun demi kemajuan MA Annajah Cilongok di masa yang akan datang.</p>
+                <p>Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+                <p style="text-align: right; margin-top: 20px;">Kepala Madrasah<br><strong>Bapak Panggih Widodo, S.Pd</strong></p>
             </div>
-        </footer>
+        </div>
+    </main>
 
-    </div>
+    <!-- FOOTER -->
+    <footer class="footer-banner">
+        <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+        
+        <div class="footer-info">
+            <h2>MA AN-NAJAH CILONGOK</h2>
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+        </div>
+
+        <div class="footer-social">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+    </footer>
 
     <script>
-        // Script untuk dropdown menu Info Sekolah
         const btnInfo = document.getElementById('btn-info-sekolah');
         const dropdownInfo = document.getElementById('dropdown-info');
 
@@ -435,7 +367,6 @@
             dropdownInfo.classList.toggle('show');
         });
 
-        // Tutup dropdown jika klik di luar area
         document.addEventListener('click', function() {
             dropdownInfo.classList.remove('show');
         });
