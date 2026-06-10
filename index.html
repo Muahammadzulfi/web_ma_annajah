@@ -271,10 +271,10 @@
             transform: scale(1.15);
         }
 
-        /* RESPONSIF KHUSUS HP */
+        /* RESPONSIF KHUSUS HP - DIPERBAIKI */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block; /* Tampilkan tombol garis tiga di HP */
+                display: block;
             }
 
             .nav-bar {
@@ -287,12 +287,15 @@
                 align-items: stretch;
                 gap: 0;
                 padding: 10px 0;
-                display: none; /* Sembunyikan menu secara default */
+                display: none;
                 box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+                /* ✅ Batasi tinggi menu agar tidak penuh layar */
+                max-height: 70vh;
+                overflow-y: auto;
             }
 
             .nav-bar.active {
-                display: flex; /* Tampilkan menu saat tombol diklik */
+                display: flex;
             }
 
             .nav-item {
@@ -301,17 +304,18 @@
             }
 
             .nav-item:hover {
-                border-bottom: 1px solid rgba(255,255,255,0.2);
+                background-color: #006b33;
                 padding-left: 30px;
             }
 
-            /* Perbaiki dropdown di HP */
+            /* ✅ Perbaiki dropdown agar tidak keluar layar */
             .dropdown-menu {
                 position: static;
                 background-color: #004a2c;
                 box-shadow: none;
                 margin: 8px 20px;
                 min-width: auto;
+                max-height: none;
             }
 
             .dropdown-menu a {
@@ -326,6 +330,7 @@
             .hero-section {
                 height: 300px;
                 padding: 0 25px;
+                margin-top: 0;
             }
         }
     </style>
@@ -426,7 +431,6 @@
 
         menuToggle.addEventListener('click', function() {
             mainNav.classList.toggle('active');
-            // Tutup dropdown jika menu utama ditutup
             if (!mainNav.classList.contains('active')) {
                 dropdownInfo.classList.remove('show');
             }
