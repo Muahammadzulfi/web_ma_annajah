@@ -141,19 +141,18 @@
             color: #005a36;
         }
 
-        /* HERO SECTION - DIPERBAIKI AGAR LEBIH TERANG */
+        /* HERO SECTION */
         .hero-section {
             width: 100%;
             height: 380px;
-            /* Hapus gradasi gelap, biarkan gambar asli terang */
             background: url('assets/images/halaman2.jpg') center/cover no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 0 40px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Tambah bayangan teks agar tetap terbaca */
-            transition: margin-top 0.3s ease; /* Animasi geser halus */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            transition: margin-top 0.3s ease;
         }
 
         .hero-title {
@@ -285,20 +284,20 @@
             }
 
             .nav-bar {
-                position: relative; /* Ubah dari absolute menjadi relative */
+                position: relative;
                 flex-direction: column;
                 align-items: stretch;
                 gap: 0;
                 padding: 0;
-                max-height: 0; /* Awalnya tertutup */
+                max-height: 0;
                 overflow: hidden;
                 background-color: #005a36;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-                transition: max-height 0.3s ease; /* Animasi buka-tutup halus */
+                transition: max-height 0.3s ease;
             }
 
             .nav-bar.active {
-                max-height: 400px; /* Buka sesuai tinggi isi menu */
+                max-height: 500px; /* Ditambah tinggi untuk menu baru */
                 padding: 10px 0;
             }
 
@@ -312,7 +311,6 @@
                 padding-left: 30px;
             }
 
-            /* Dropdown di HP */
             .dropdown-menu {
                 position: static;
                 background-color: #004a2c;
@@ -370,7 +368,8 @@
             </div>
 
             <a href="jadwal.html" class="nav-item">Jadwal</a>
-            <a href="ppdb.html" class="nav-item">Pendaftaran</a>
+            <a href="galeri.html" class="nav-item">Galeri</a> <!-- ✅ Menu Galeri ditambahkan -->
+            <a href="pendaftaran.html" class="nav-item">Pendaftaran</a>
             <a href="alumni.html" class="nav-item">Alumni</a>
             <a href="kontak.html" class="nav-item">Kontak</a>
         </nav>
