@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Madrasah Aliyah An-Najah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#006622',    // Hijau utama sesuai gambar
+                        secondary: '#008833',  // Hijau lebih terang
+                        accent: '#CC0000',     // Merah untuk tombol kembali
+                        dark: '#1E293B',
+                        light: '#FFFFFF',
+                        soft: '#F8FAF9'
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'Roboto', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-shadow {
+                box-shadow: 0 2px 12px rgba(0, 102, 34, 0.1);
+            }
+            .text-justify {
+                text-align: justify;
+            }
+            .border-left {
+                border-left: 4px solid #006622;
+            }
+        }
+    </style>
+</head>
+<body class="bg-soft text-dark min-h-screen">
+    <!-- Header dengan Logo & Tombol Kembali -->
+    <header class="bg-white border-b border-gray-200 py-4 px-4 md:px-8">
+        <div class="container mx-auto">
+            <!-- Tombol Kembali -->
+            <a href="#" class="inline-flex items-center text-accent border border-accent rounded-full px-4 py-1.5 mb-4 hover:bg-accent hover:text-white transition-colors duration-200">
+                <i class="fa fa-arrow-left mr-2"></i> Kembali
+            </a>
+
+            <!-- Info Sekolah -->
+            <div class="flex flex-col md:flex-row items-center md:items-start gap-4">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center overflow-hidden border border-gray-200">
+                    <!-- Ganti src dengan logo sekolah asli -->
+                    <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="w-full h-full object-contain">
+                </div>
+                <div class="text-center md:text-left">
+                    <h1 class="text-2xl md:text-3xl font-bold text-primary">Madrasah Aliyah An-Najah</h1>
+                    <p class="text-gray-600">Rancamaya Cilongok</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Judul Utama -->
+    <div class="bg-primary text-white py-4 px-4 md:px-8 mt-4">
+        <div class="container mx-auto text-center">
+            <h2 class="text-xl md:text-2xl font-semibold">Profil & Sejarah Sekolah</h2>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 md:px-8 py-6">
+        <!-- Bagian Profil Sekolah -->
+        <section class="bg-white rounded-lg p-5 md:p-6 mb-6 card-shadow">
+            <h2 class="text-xl md:text-2xl font-bold text-primary mb-5 flex items-center">
+                <i class="fa fa-university mr-3"></i> Profil Sekolah
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="space-y-3">
+                    <p><span class="font-semibold text-primary">Nama Sekolah:</span> Madrasah Aliyah An-Najah</p>
+                    <p><span class="font-semibold text-primary">Alamat:</span> Rancamaya, Kecamatan Cilongok</p>
+                    <p><span class="font-semibold text-primary">Status:</span> Sekolah Swasta Terakreditasi</p>
+                    <p><span class="font-semibold text-primary">Tahun Berdiri:</span> 1998</p>
+                </div>
+                <div class="space-y-3">
+                    <p><span class="font-semibold text-primary">Akreditasi:</span> B (Baik)</p>
+                    <p><span class="font-semibold text-primary">Kepala Madrasah:</span> Drs. H. Ahmad Supriyanto, M.Pd.I</p>
+                    <p><span class="font-semibold text-primary">Telepon:</span> (0281) 123456</p>
+                    <p><span class="font-semibold text-primary">Email:</span> info@maannajahcilongok.sch.id</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Sejarah -->
+        <section class="bg-white rounded-lg p-5 md:p-6 mb-6 card-shadow">
+            <h2 class="text-xl md:text-2xl font-bold text-primary mb-5 flex items-center">
+                <i class="fa fa-book mr-3"></i> Sejarah Singkat
+            </h2>
+            
+            <div class="text-gray-700 leading-relaxed text-justify space-y-4">
+                <p>
+                    Madrasah Aliyah An-Najah didirikan pada tahun <strong>1998</strong> di wilayah Rancamaya, Kecamatan Cilongok. Berdiri atas gagasan dan kepedulian para tokoh masyarakat, ulama, dan pemuka agama setempat yang ingin menyediakan jalur pendidikan menengah yang memadukan ilmu agama Islam dan ilmu pengetahuan umum secara seimbang.
+                </p>
+                <p>
+                    Pada awal berdirinya, MA An-Najah hanya memiliki ruang belajar yang sangat sederhana dan diikuti oleh kurang dari 30 orang siswa. Namun dengan semangat gotong royong masyarakat dan ketekunan para pengajar, madrasah ini terus berkembang secara bertahap. Fasilitas pembelajaran terus dilengkapi dan ditingkatkan kualitasnya agar dapat menciptakan lingkungan belajar yang nyaman dan kondusif.
+                </p>
+                <p>
+                    Nama <strong>"An-Najah"</strong> diambil dari bahasa Arab yang berarti <em>"Kesuksesan"</em> atau <em>"Jalan Menuju Kemenangan"</em>. Nama ini menjadi doa dan harapan besar agar seluruh siswa dapat meraih kesuksesan hidup di dunia dan kebahagiaan abadi di akhirat.
+                </p>
+                <p>
+                    Kini, MA An-Najah telah terdaftar resmi dan mendapatkan izin operasional dari Kementerian Agama Republik Indonesia serta telah terakreditasi. Sekolah ini terus berkomitmen mencetak generasi muda yang beriman, bertaqwa, berilmu luas, berakhlak mulia, dan siap melanjutkan pendidikan ke jenjang yang lebih tinggi maupun terjun langsung ke masyarakat.
+                </p>
+            </div>
+        </section>
+
+        <!-- Visi & Misi -->
+        <section class="grid md:grid-cols-2 gap-5 mb-6">
+            <div class="bg-white rounded-lg p-5 md:p-6 card-shadow border-left">
+                <h2 class="text-xl font-bold text-primary mb-4 flex items-center">
+                    <i class="fa fa-eye mr-3"></i> Visi
+                </h2>
+                <p class="text-gray-700 italic">
+                    "Terwujudnya generasi yang berilmu, beriman, bertaqwa, berakhlak mulia, mandiri, dan berprestasi berdasarkan nilai-nilai ajaran Islam Ahlus Sunnah wal Jama'ah."
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg p-5 md:p-6 card-shadow border-left">
+                <h2 class="text-xl font-bold text-primary mb-4 flex items-center">
+                    <i class="fa fa-bullseye mr-3"></i> Misi
+                </h2>
+                <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                    <li>Menyelenggarakan pendidikan yang mengintegrasikan ilmu agama dan ilmu umum secara seimbang.</li>
+                    <li>Membentuk karakter siswa yang jujur, disiplin, tanggung jawab, dan peduli lingkungan.</li>
+                    <li>Meningkatkan kompetensi guru dan tenaga kependidikan secara berkelanjutan.</li>
+                    <li>Menyediakan sarana prasarana belajar yang layak dan memadai.</li>
+                    <li>Membina bakat dan minat siswa agar siap menghadapi tantangan masa depan.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Program Unggulan -->
+        <section class="bg-white rounded-lg p-5 md:p-6 mb-6 card-shadow">
+            <h2 class="text-xl md:text-2xl font-bold text-primary mb-5 flex items-center">
+                <i class="fa fa-star mr-3"></i> Program Unggulan
+            </h2>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-quran mr-2"></i> Tahfidz Al-Qur'an
+                    </h3>
+                    <p class="text-sm text-gray-600">Program terstruktur menghafal Al-Qur'an dan memahami tajwid.</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-book mr-2"></i> Kurikulum Terpadu
+                    </h3>
+                    <p class="text-sm text-gray-600">Menggabungkan kurikulum nasional dan pendidikan agama yang mendalam.</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-users mr-2"></i> Ekstrakurikuler
+                    </h3>
+                    <p class="text-sm text-gray-600">Pramuka, olahraga, seni kaligrafi, komputer, dan pidato bahasa Arab/Indonesia.</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-graduation-cap mr-2"></i> Bimbingan Studi
+                    </h3>
+                    <p class="text-sm text-gray-600">Persiapan ujian dan bimbingan khusus masuk perguruan tinggi.</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-clock-o mr-2"></i> Pembiasaan Ibadah
+                    </h3>
+                    <p class="text-sm text-gray-600">Shalat berjamaah, doa bersama, dan pembiasaan akhlak Islami sehari-hari.</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-wifi mr-2"></i> Teknologi Pembelajaran
+                    </h3>
+                    <p class="text-sm text-gray-600">Pemanfaatan komputer dan akses informasi untuk mendukung proses belajar.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-5 px-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2026 Madrasah Aliyah An-Najah - Rancamaya Cilongok</p>
+            <p class="text-green-100 text-sm mt-1">Mencetak Generasi Cerdas dan Berakhlak Mulia</p>
+        </div>
+    </footer>
+</body>
+</html>

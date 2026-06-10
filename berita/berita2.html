@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelatihan Literasi Digital - MA An-Najah</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            padding: 12px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .top-bar {
+            background-color: #005a36;
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            gap: 15px;
+        }
+
+        .back-btn {
+            background-color: #b90000;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            background-color: #a00000;
+        }
+
+        .news-detail {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+        }
+
+        .news-detail h1 {
+            font-size: 24px;
+            color: #222;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .news-image {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .news-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            text-align: justify;
+        }
+
+        .footer-banner {
+            background-color: #005a36;
+            border-radius: 12px;
+            color: white;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .footer-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-info h2 {
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .footer-info p {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 18px;
+            margin-left: auto;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.18);
+        }
+
+        @media (max-width: 768px) {
+            .footer-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-social {
+                margin: 10px auto 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+        <a href="berita.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Kembali ke Berita
+        </a>
+    </div>
+
+    <div class="news-detail">
+        <h1>Pelatihan Literasi Digital dan Keamanan Siber untuk Siswa</h1>
+        <img src="assets/images/berita2.jpg" alt="Pelatihan Literasi Digital" class="news-image">
+        <div class="news-content">
+            <p>MA An-Najah Cilongok mengadakan pelatihan literasi digital dan keamanan siber yang diikuti oleh seluruh siswa kelas X hingga XII. Kegiatan ini bertujuan membekali siswa dengan kemampuan memanfaatkan teknologi informasi secara bijak, aman, dan bertanggung jawab di era digital.</p>
+            <br>
+            <p>Narasumber dari Dinas Komunikasi dan Informatika Kabupaten Banyumas menyampaikan materi tentang cara mengidentifikasi informasi hoaks, etika bermedia sosial, serta langkah-langkah melindungi data pribadi saat berinternet. Siswa juga diajak berdiskusi mengenai dampak positif dan negatif penggunaan gawai dalam kehidupan sehari-hari.</p>
+            <br>
+            <p>Pelatihan dilengkapi dengan sesi praktik pembuatan konten edukatif yang kreatif namun tetap sesuai nilai-nilai keislaman. Diharapkan setelah mengikuti kegiatan ini, siswa mampu menjadi pengguna internet yang cerdas dan berkontribusi menyebarkan informasi yang bermanfaat bagi lingkungan sekitar.</p>
+        </div>
+    </div>
+
+    <footer class="footer-banner">
+        <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+        
+        <div class="footer-info">
+            <h2>MA AN-NAJAH CILONGOK</h2>
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+        </div>
+
+        <div class="footer-social">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
