@@ -29,6 +29,8 @@
             position: sticky;
             top: 0;
             z-index: 999;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo-area {
@@ -57,6 +59,7 @@
             display: flex;
             align-items: center;
             gap: 25px;
+            flex-wrap: wrap;
         }
 
         .nav-item {
@@ -67,6 +70,7 @@
             transition: all 0.2s ease;
             padding: 4px 0;
             border-bottom: 2px solid transparent;
+            white-space: nowrap;
         }
 
         .nav-item:hover {
@@ -264,12 +268,12 @@
         @media (max-width: 768px) {
             .main-header {
                 flex-direction: column;
-                gap: 12px;
+                align-items: center;
+                text-align: center;
                 padding: 15px;
             }
             .nav-bar {
-                gap: 18px;
-                flex-wrap: wrap;
+                gap: 15px;
                 justify-content: center;
             }
             .hero-section {
@@ -296,17 +300,20 @@
                     Info Sekolah <i class="fas fa-chevron-down fa-xs"></i>
                 </button>
                 <div class="dropdown-menu" id="dropdown-info">
-                    <a href="#">Profil & Sejarah Singkat</a>
+                    <a href="profil.html">Profil & Sejarah Singkat</a>
                     <a href="visimisi.html">Visi & Misi</a>
                     <a href="guru.html">Guru & Karyawan</a>
-                    <a href="program.html">Program Keahlian</a>
-                    <a href="ektrakurikuler.html">Ekstrakurikuler</a>
-                    <a href="#">Prestasi</a>
+                    <a href="program.html">Program Keunggulan</a>
+                    <a href="ekstrakurikuler.html">Ekstrakurikuler</a>
+                    <a href="prestasi.html">Prestasi</a>
                 </div>
             </div>
 
             <a href="jadwal.html" class="nav-item">Jadwal</a>
             <a href="ppdb.html" class="nav-item">Pendaftaran</a>
+            <!-- Menu Baru yang Ditambahkan -->
+            <a href="alumni.html" class="nav-item">Alumni</a>
+            <a href="kontak.html" class="nav-item">Kontak</a>
         </nav>
     </header>
 

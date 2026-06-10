@@ -14,39 +14,38 @@
         }
 
         body {
-            background-color: #222;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #f0f0f0;
             min-height: 100vh;
-            padding: 20px;
+            padding: 0 15px;
         }
 
+        /* ===== CONTAINER PENUH ===== */
         .card-container {
             width: 100%;
-            max-width: 700px;
-            background-color: #f4f4f4;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            min-height: 100vh;
+            background-color: #ffffff;
+            box-shadow: none;
+            border-radius: 0;
+            overflow: visible;
         }
 
         /* Header */
         .header-bar {
             background-color: #005a36;
             color: white;
-            padding: 12px 15px;
+            padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
         }
 
         .header-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             background-color: white;
             border-radius: 50%;
         }
@@ -56,25 +55,30 @@
             background-color: #b90000;
             color: white;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin: 10px 15px;
-            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0 0 20px 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
-        .btn-kembali i {
-            margin-right: 5px;
+        .btn-kembali:hover {
+            transform: scale(1.05);
+            background-color: #a00000;
         }
 
         /* Konten Utama */
         .content {
-            padding: 20px 15px;
-            border: 1.5px solid #005a36;
+            padding: 25px 20px;
             background-color: #ffffff;
             position: relative;
-            min-height: 600px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .watermark {
@@ -82,9 +86,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 45px;
+            font-size: 80px;
             font-weight: bold;
-            color: rgba(0, 86, 54, 0.05);
+            color: rgba(0, 86, 54, 0.03);
             line-height: 1.2;
             text-align: center;
             pointer-events: none;
@@ -94,58 +98,63 @@
         .content-title {
             background-color: #005a36;
             color: white;
-            padding: 12px;
+            padding: 15px;
             text-align: center;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
-            border-radius: 6px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
             position: relative;
             z-index: 2;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
         }
 
         /* Item Program - TEKS DI KIRI, KOTAK FOTO DI KANAN */
         .program-list {
             position: relative;
             z-index: 2;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
             gap: 25px;
-            padding: 0 10px;
+            width: 100%;
         }
 
         .program-item {
             display: flex;
             gap: 20px;
             align-items: flex-start;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ccc;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            background-color: #fdfdfd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
         /* Bagian Teks Penjelasan */
         .program-deskripsi {
-            flex: 3; /* Teks lebih lebar */
+            flex: 3;
         }
 
         .program-deskripsi h3 {
-            font-size: 15px;
+            font-size: 17px;
             color: #005a36;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             background: #e8f5ee;
-            padding: 6px 8px;
+            padding: 8px 12px;
             border-left: 4px solid #005a36;
+            border-radius: 4px;
         }
 
         .program-deskripsi p {
-            font-size: 12px;
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.7;
             text-align: justify;
             color: #333;
         }
 
         /* KOTAK FOTO / GAMBAR - DI KANAN */
         .program-foto {
-            flex: 1.2; /* Kotak foto ukuran pas */
+            flex: 1.2;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -153,7 +162,7 @@
 
         .foto-kotak {
             width: 100%;
-            height: 140px;
+            height: 160px;
             border: 2px solid #005a36;
             border-radius: 8px;
             overflow: hidden;
@@ -161,17 +170,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .foto-kotak:hover {
+            transform: scale(1.02);
         }
 
         .foto-kotak img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Gambar pas dan rapi */
+            object-fit: cover;
         }
 
         .foto-kotak .teks-kosong {
             color: #005a36;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: bold;
             text-align: center;
         }
@@ -180,47 +194,52 @@
         .footer-banner {
             background-color: #005a36;
             color: white;
-            padding: 15px 20px;
+            padding: 25px 22px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-radius: 16px 16px 0 0;
-            margin: 10px;
-            gap: 15px;
+            border-radius: 12px;
+            margin: 30px 0;
+            gap: 18px;
+            flex-wrap: wrap;
+            width: 100%;
         }
 
         .footer-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
+            flex: 1;
+            min-width: 250px;
         }
 
         .footer-logo {
-            width: 50px;
+            width: 45px;
             height: auto;
+            flex-shrink: 0;
         }
 
         .footer-info-text h2 {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: bold;
             color: #f9d308;
-            margin-bottom: 3px;
+            margin-bottom: 6px;
         }
 
         .footer-info-text p {
-            font-size: 11px;
-            line-height: 1.4;
+            font-size: 13px;
+            line-height: 1.6;
             opacity: 0.9;
         }
 
         .footer-social-icons {
             display: flex;
-            gap: 8px;
+            gap: 12px;
         }
 
         .social-icon-circle {
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             background-color: rgba(255, 255, 255, 0.15);
             border-radius: 50%;
             display: flex;
@@ -228,12 +247,40 @@
             align-items: center;
             color: white;
             text-decoration: none;
-            font-size: 14px;
-            transition: 0.2s;
+            font-size: 16px;
+            transition: all 0.2s ease;
         }
 
         .social-icon-circle:hover {
             background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Responsif untuk HP */
+        @media (max-width: 768px) {
+            .program-list {
+                grid-template-columns: 1fr;
+            }
+            .program-item {
+                flex-direction: column;
+            }
+            .program-foto {
+                width: 100%;
+                order: -1;
+            }
+            .foto-kotak {
+                height: 180px;
+            }
+            .content-title {
+                font-size: 18px;
+            }
+            .footer-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-social-icons {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
@@ -253,9 +300,7 @@
         <!-- Isi Konten -->
         <div class="content">
             <!-- Tanda Air -->
-            <div class="assets/images/logo.jpg"watermark><br>
-            
-            </div>
+            <div class="watermark">MA AN-NAJAH</div>
 
             <h2 class="content-title">PROGRAM KEUNGGULAN MA AN-NAJAH CILONGOK</h2>
 
@@ -281,15 +326,14 @@
                 <!-- Program 2 -->
                 <div class="program-item">
                     <div class="program-deskripsi">
-                        <h3>
-                            2.Tahfidz Jurumiyah,Imrity</h3>
+                        <h3>2. Tahfidz Jurumiyah & Imrity</h3>
                         <p>MA Annajah Cilongok menghadirkan Program Unggulan Tahfidz Nadhom Imrity dan Jurumiyah sebagai wadah strategis dalam mencetak generasi mudarris yang menguasai fondasi gramatikal bahasa Arab. Di tengah tuntutan kurikulum formal, program ini berhasil mengintegrasikan materi madrasah dengan sistem hafalan bait (nadhom) yang dikelola secara sistematis selama masa pendidikan tiga tahun. Aktivitas pembelajaran berpusat pada bimbingan intensif bersistem setoran langsung, di mana setiap santri diwajibkan menambah hafalan baru sekaligus memperkuat ingatan bait yang telah dihafalkan sebelumnya di bawah pengawasan ketat dewan asatidzah. Guna menguji kedalaman hafalan serta pemahaman terhadap kaidah Nahwu, evaluasi kelayakan atau ikhtibar diselenggarakan secara berkala pada setiap penyelesaian bab kitab, yang puncaknya akan dikukuhkan melalui momentum Haflah Takhorruj serta penyerahan ijazah resmi.
-                            Langkah taktis ini tidak sekadar melatih ketajaman berpikir dan kecintaan siswa terhadap literatur Islam klasik, melainkan juga membuka ruang akselerasi karier akademik yang sangat luas. Berbekal ijazah dan sertifikasi kompetensi dari MA Annajah Cilongok, para lulusan memiliki rekam jejak kepakaran yang diakui untuk menembus seleksi jalur khusus di berbagai institusi keagamaan negeri, program beasiswa khusus pesantren, hingga perguruan tinggi di Timur Tengah. Pola pembiasaan yang integratif ini memastikan madrasah melahirkan lulusan berwawasan luas yang tidak hanya unggul pada aspek sains, tetapi juga kokoh secara metodologi keilmuan syariat..</p>
+                            Langkah taktis ini tidak sekadar melatih ketajaman berpikir dan kecintaan siswa terhadap literatur Islam klasik, melainkan juga membuka ruang akselerasi karier akademik yang sangat luas. Berbekal ijazah dan sertifikasi kompetensi dari MA Annajah Cilongok, para lulusan memiliki rekam jejak kepakaran yang diakui untuk menembus seleksi jalur khusus di berbagai institusi keagamaan negeri, program beasiswa khusus pesantren, hingga perguruan tinggi di Timur Tengah. Pola pembiasaan yang integratif ini memastikan madrasah melahirkan lulusan berwawasan luas yang tidak hanya unggul pada aspek sains, tetapi juga kokoh secara metodologi keilmuan syariat.</p>
                     </div>
                     <!-- KOTAK FOTO DI SAMPING KANAN -->
                     <div class="program-foto">
                         <div class="foto-kotak">
-                            <img src="assets/foto-bahasa.jpg" alt="Kegiatan Bahasa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <img src="assets/foto-bahasa.jpg" alt="Kegiatan Bahasa Arab" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                             <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
                         </div>
                     </div>
@@ -298,14 +342,14 @@
                 <!-- Program 3 -->
                 <div class="program-item">
                     <div class="program-deskripsi">
-                        <h3>3. Keterampilan Ceramah Agama </h3>
+                        <h3>3. Keterampilan Ceramah Agama</h3>
                         <p>Keterampilan Ceramah Agama di MA Annajah Cilongok merupakan salah satu pilar kompetensi praktis yang dirancang untuk melatih kemampuan komunikasi publik (public speaking) sekaligus kesiapan mental siswa sebagai calon dai dan penceramah di masyarakat. Program ini tidak hanya berfokus pada teknik retorika semata, melainkan mengintegrasikan kemampuan olah vokal, penguasaan panggung, serta kedalaman penyusunan materi dakwah secara terstruktur. Dalam pelaksanaannya, siswa dibiasaan menyusun teks ceramah yang bersumber dari dalil-dalil Al-Qur'an dan Hadis, yang kemudian disajikan dengan bahasa yang santun, persuasif, dan adaptif terhadap perkembangan zaman. Untuk mengasah keterampilan ini secara konsisten, madrasah menyediakan wadah latihan berkala berupa kegiatan khitobah mingguan serta penugasan praktik langsung pada momen-momen hari besar Islam.
-                            Selain menumbuhkan rasa percaya diri dan membentuk karakter kepemimpinan yang komunikatif, penguasaan keterampilan ceramah ini memberikan modal sosial dan akademis yang sangat berharga bagi masa depan siswa. Kemampuan menyampaikan pesan-pesan agama secara efektif menjadi nilai tambah yang signifikan, baik saat berbaur di lingkungan pengabdian masyarakat maupun ketika bersaing dalam seleksi perguruan tinggi melalui jalur prestasi minat bakat. Melalui pendekatan yang aplikatif ini, madrasah berkomitmen untuk tidak sekadar melahirkan lulusan yang cerdas secara teoritis, tetapi juga terampil menyebarkan syiar Islam yang menyejukkan, inklusif, dan siap menjadi penggerak kebaikan di tengah umat..</p>
+                            Selain menumbuhkan rasa percaya diri dan membentuk karakter kepemimpinan yang komunikatif, penguasaan keterampilan ceramah ini memberikan modal sosial dan akademis yang sangat berharga bagi masa depan siswa. Kemampuan menyampaikan pesan-pesan agama secara efektif menjadi nilai tambah yang signifikan, baik saat berbaur di lingkungan pengabdian masyarakat maupun ketika bersaing dalam seleksi perguruan tinggi melalui jalur prestasi minat bakat. Melalui pendekatan yang aplikatif ini, madrasah berkomitmen untuk tidak sekadar melahirkan lulusan yang cerdas secara teoritis, tetapi juga terampil menyebarkan syiar Islam yang menyejukkan, inklusif, dan siap menjadi penggerak kebaikan di tengah umat.</p>
                     </div>
                     <!-- KOTAK FOTO DI SAMPING KANAN -->
                     <div class="program-foto">
                         <div class="foto-kotak">
-                            <img src="assets/foto-sains.jpg" alt="Kegiatan Sains & Teknologi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <img src="assets/foto-ceramah.jpg" alt="Kegiatan Ceramah Agama" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                             <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
                         </div>
                     </div>
@@ -316,12 +360,12 @@
                     <div class="program-deskripsi">
                         <h3>4. Pendidikan Kepemimpinan</h3>
                         <p>Pendidikan Kepemimpinan di MA Annajah Cilongok merupakan instrumen strategis yang diintegrasikan ke dalam sistem pendidikan untuk membentuk karakter siswa yang visioner, tangguh, dan bertanggung jawab. Program ini didesain tidak hanya untuk melatih kemampuan manajerial secara teoretis, melainkan menanamkan nilai-nilai kepemimpinan Islam (qiyadah) yang berbasis pada keteladanan, integritas, dan khidmah (pelayanan kepada umat). Dalam implementasinya, penanaman jiwa kepemimpinan ini disalurkan melalui ekosistem organisasi intra-madrasah, latihan kepemimpinan tingkat dasar, hingga pendelegasian santri dalam mengelola berbagai kegiatan kepanitiaan secara mandiri. Melalui simulasi organisasi tersebut, siswa ditempa untuk mengasah kepekaan sosial, ketajaman analisis dalam pengambilan keputusan, serta kecakapan menyelesaikan konflik secara bijaksana.
-                            Di samping mencetak pribadi yang disiplin dan adaptif terhadap dinamika kelompok, internalisasi kecakapan memimpin ini memberikan fondasi yang sangat kokoh bagi masa depan akademik dan organisasi siswa di level yang lebih tinggi. Lulusan yang memiliki rekam jejak kepemimpinan yang matang terbukti lebih siap bersaing di dunia perkuliahan, mudah beradaptasi dalam iklim profesional, serta memiliki peluang besar untuk meraih beasiswa jalur organisasi atau prestasi non-akademik. Melalui keterpaduan pembinaan ini, madrasah berkomitmen melahirkan kader-kader pemimpin masa depan yang tidak hanya matang secara intelektual dan spiritual, tetapi juga cakap berdiri di barisan depan sebagai penggerak perubahan yang membawa kemaslahatan bagi masyarakat luas..</p>
+                            Di samping mencetak pribadi yang disiplin dan adaptif terhadap dinamika kelompok, internalisasi kecakapan memimpin ini memberikan fondasi yang sangat kokoh bagi masa depan akademik dan organisasi siswa di level yang lebih tinggi. Lulusan yang memiliki rekam jejak kepemimpinan yang matang terbukti lebih siap bersaing di dunia perkuliahan, mudah beradaptasi dalam iklim profesional, serta memiliki peluang besar untuk meraih beasiswa jalur organisasi atau prestasi non-akademik. Melalui keterpaduan pembinaan ini, madrasah berkomitmen melahirkan kader-kader pemimpin masa depan yang tidak hanya matang secara intelektual dan spiritual, tetapi juga cakap berdiri di barisan depan sebagai penggerak perubahan yang membawa kemaslahatan bagi masyarakat luas.</p>
                     </div>
                     <!-- KOTAK FOTO DI SAMPING KANAN -->
                     <div class="program-foto">
                         <div class="foto-kotak">
-                            <img src="assets/foto-akhlak.jpg" alt="Kegiatan Pembinaan Akhlak" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <img src="assets/foto-kepemimpinan.jpg" alt="Kegiatan Kepemimpinan" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                             <div class="teks-kosong" style="display: none;">[ISI FOTO KEGIATAN]</div>
                         </div>
                     </div>

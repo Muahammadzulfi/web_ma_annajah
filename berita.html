@@ -14,24 +14,21 @@
         }
 
         body {
-            background-color: hsl(0, 0%, 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-color: #ffffff;
             min-height: 100vh;
-            padding: 8px;
+            padding: 0; /* Hapus padding agar menempel ke tepi */
         }
 
+        /* Ubah container agar penuh layar */
         .container {
             width: 100%;
-            max-width: 650px; 
+            min-height: 100vh;
             background-color: #f4f4f4;
             padding: 12px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            position: relative;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            gap: 15px;
+            box-shadow: none; /* Hapus bayangan pembatas */
         }
 
         .top-bar {
@@ -40,91 +37,101 @@
             color: white;
             display: flex;
             align-items: center;
-            padding: 10px 12px;
+            padding: 12px 18px;
             gap: 15px;
+            width: 100%;
         }
 
         .back-btn {
-            /* 🔴 PERUBAHAN: Gaya tombol sesuai gambar kanan */
-            background-color: #b90000; /* Warna merah */
-            color: white; /* Tulisan putih */
-            font-size: 12px; /* Ukuran tulisan */
+            background-color: #b90000;
+            color: white;
+            font-size: 14px;
             font-weight: bold;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px; /* Jarak ikon dan teks */
-            padding: 6px 15px; /* Ruang dalam */
-            border-radius: 20px; /* Membulat */
-            transition: transform 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
         }
 
         .back-btn i {
-            font-size: 14px; /* Ukuran ikon panah */
+            font-size: 15px;
         }
 
         .back-btn:hover {
             transform: scale(1.05);
-            background-color: #a00000; /* Merah lebih gelap saat disentuh */
+            background-color: #a00000;
         }
 
         .title-box {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             letter-spacing: 0.3px;
         }
 
         .news-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 4px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px;
+            width: 100%;
+            padding: 0 5px;
         }
 
         .news-card {
             background-color: white;
             border-radius: 12px;
-            padding: 12px;
-            border: 1.5px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 15px;
+            border: 1.5px solid #e0e0e0;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .news-title {
-            font-size: 13px;
+            font-size: 16px;
             font-weight: bold;
-            color: #222222;
-            margin-bottom: 8px;
-            line-height: 1.4;
+            color: #222;
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
         .image-wrapper {
             position: relative;
             border-radius: 8px;
             overflow: hidden;
-            height: 180px;
+            height: 220px;
             width: 100%;
+            margin-top: auto;
         }
 
         .image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.03);
         }
 
         .read-btn {
             position: absolute;
-            bottom: 8px;
-            right: 8px;
+            bottom: 12px;
+            right: 12px;
             background-color: #09aa4c;
             color: white;
             text-decoration: none;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 15px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            transition: background 0.2s;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 7px 16px;
+            border-radius: 20px;
+            box-shadow: 0 3px 7px rgba(0,0,0,0.25);
+            transition: background-color 0.2s ease;
         }
 
         .read-btn:hover {
@@ -133,56 +140,75 @@
 
         .footer-banner {
             background-color: #005a36;
-            border-radius: 12px; 
+            border-radius: 12px;
             color: white;
-            padding: 15px 18px;
+            padding: 20px 22px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 18px;
             flex-wrap: wrap;
+            margin-top: auto;
+            width: 100%;
         }
 
         .footer-logo {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             object-fit: contain;
             flex-shrink: 0;
         }
 
         .footer-info {
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
         }
 
         .footer-info h2 {
-            font-size: 15px;
+            font-size: 17px;
             font-weight: bold;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .footer-info p {
-            font-size: 11px;
-            line-height: 1.5;
+            font-size: 13px;
+            line-height: 1.6;
             opacity: 0.9;
         }
 
         .footer-social {
             display: flex;
-            gap: 14px;
+            gap: 18px;
             margin-left: auto;
         }
 
         .footer-social a {
             color: white;
-            font-size: 18px;
+            font-size: 20px;
             text-decoration: none;
-            transition: transform 0.2s;
+            transition: transform 0.2s ease;
         }
 
         .footer-social a:hover {
-            transform: scale(1.15);
+            transform: scale(1.18);
         }
 
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .top-bar {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .footer-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-social {
+                margin: 10px auto 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -190,7 +216,6 @@
 <div class="container">
 
     <div class="top-bar">
-        <!-- 🔴 PERUBAHAN: Teks "Kembali" ditambahkan di dalam tag <a> -->
         <a href="index.html" class="back-btn">
             <i class="fa-solid fa-arrow-left"></i> Kembali
         </a>
@@ -203,7 +228,7 @@
             <div class="news-title">Hari Ketiga MATSAMA MA An-Najah Cilongok</div>
             <div class="image-wrapper">
                 <img src="assets/images/berita/1.jpg" alt="Matsama Hari 3">
-                <a href="#" class="read-btn">Read More</a>
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
             </div>
         </div>
 
@@ -211,7 +236,7 @@
             <div class="news-title">Hari Kedua MATSAMA MA Ma'arif Cilongok</div>
             <div class="image-wrapper">
                 <img src="assets/images/berita/2.jpg" alt="Matsama Hari 2">
-                <a href="#" class="read-btn">Read More</a>
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
             </div>
         </div>
 
@@ -219,7 +244,31 @@
             <div class="news-title">Masa Ta'aruf MA An-Najah Cilongok</div>
             <div class="image-wrapper">
                 <img src="assets/images/berita/3.jpg" alt="Masa Ta'aruf">
-                <a href="#" class="read-btn">Read More</a>
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title">Pembukaan Kegiatan Belajar Mengajar Tahun Ajaran Baru</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/4.jpg" alt="KBM Tahun Ajaran Baru">
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title">Prestasi Siswa dalam Lomba Pidato Bahasa Arab</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/5.jpg" alt="Lomba Pidato">
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <div class="news-title">Kegiatan Ekstrakurikuler Pramuka MA An-Najah</div>
+            <div class="image-wrapper">
+                <img src="assets/images/berita/6.jpg" alt="Ekstrakurikuler Pramuka">
+                <a href="#" class="read-btn">Baca Selengkapnya</a>
             </div>
         </div>
 
