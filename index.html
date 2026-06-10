@@ -227,48 +227,49 @@
             margin-bottom: 15px;
         }
 
-        /* FOOTER */
+        /* FOOTER DIPERBAIKI */
         .footer-banner {
             background-color: #005a36;
             color: white;
-            padding: 25px;
+            padding: 30px 25px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
+            text-align: center;
+            gap: 20px;
         }
 
         .footer-logo {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         .footer-info {
-            flex: 1;
-            min-width: 220px;
+            max-width: 700px;
         }
 
         .footer-info h2 {
-            font-size: 17px;
-            margin-bottom: 6px;
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
         .footer-info p {
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.6;
             opacity: 0.9;
+            white-space: pre-line; /* Agar teks terbagi sesuai baris */
         }
 
         .footer-social {
             display: flex;
-            gap: 16px;
+            justify-content: center;
+            gap: 20px;
         }
 
         .footer-social a {
             color: white;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
             transition: transform 0.2s;
         }
@@ -297,7 +298,7 @@
             }
 
             .nav-bar.active {
-                max-height: 500px; /* Ditambah tinggi untuk menu baru */
+                max-height: 500px;
                 padding: 10px 0;
             }
 
@@ -367,8 +368,8 @@
                 </div>
             </div>
 
-            <a href="jadwal.html" class="nav-item">Jadwal</a>
-            <a href="galeri.html" class="nav-item">Galeri</a> <!-- ✅ Menu Galeri ditambahkan -->
+            <!-- ✅ Jadwal diganti menjadi Galeri -->
+            <a href="galeri.html" class="nav-item">Galeri</a>
             <a href="pendaftaran.html" class="nav-item">Pendaftaran</a>
             <a href="alumni.html" class="nav-item">Alumni</a>
             <a href="kontak.html" class="nav-item">Kontak</a>
@@ -405,15 +406,18 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
+    <!-- FOOTER DIPERBAIKI -->
     <footer class="footer-banner">
         <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
         
         <div class="footer-info">
             <h2>MA AN-NAJAH CILONGOK</h2>
-            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            <!-- ✅ Alamat dibagi menjadi 2 baris -->
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya
+Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
         </div>
 
+        <!-- ✅ Ikon media sosial diposisikan di tengah -->
         <div class="footer-social">
             <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
             <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
