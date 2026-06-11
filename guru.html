@@ -31,28 +31,21 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* Header */
+        /* Header - Disesuaikan dengan posisi tombol */
         .header-bar {
             background-color: #005a36;
             color: white;
             padding: 15px 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px; /* Jarak tombol dan teks */
             font-weight: bold;
             font-size: 20px;
             margin: 15px 0;
             border-radius: 12px;
         }
 
-        .header-icon {
-            width: 20px;
-            height: 20px;
-            background-color: white;
-            border-radius: 50%;
-        }
-
-        /* Tombol Kembali */
+        /* Tombol Kembali - Desain dan posisi disesuaikan */
         .btn-kembali {
             background-color: #b90000;
             color: white;
@@ -61,12 +54,12 @@
             font-weight: bold;
             padding: 8px 18px;
             border-radius: 25px;
-            margin: 0 0 25px 0;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             transition: all 0.2s ease;
             box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            flex-shrink: 0; /* Mencegah tombol mengecil */
         }
 
         .btn-kembali:hover {
@@ -170,50 +163,64 @@
         .footer-banner {
             background-color: #005a36;
             color: white;
-            padding: 25px 22px;
+            padding: 40px 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            border-radius: 12px;
-            margin: 30px 0;
-            gap: 18px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-
-        .footer-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex: 1;
-            min-width: 250px;
+            text-align: center;
+            gap: 25px;
         }
 
         .footer-logo {
-            width: 45px;
-            height: auto;
-            flex-shrink: 0;
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
         }
 
-        .footer-info-text h2 {
-            font-size: 17px;
-            font-weight: bold;
-            color: #f9d308; 
-            margin-bottom: 6px;
+        .footer-info {
+            max-width: 750px;
         }
 
-        .footer-info-text p {
-            font-size: 13px;
-            line-height: 1.6;
+        .footer-info h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .footer-info p {
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 14.5px;
+            line-height: 1.7;
             opacity: 0.9;
+            white-space: pre-line;
         }
 
-        .footer-social-icons {
+        .footer-social {
             display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
         }
 
+        .footer-social a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-3px);
+            background-color: #ffffff;
+            color: #005a36;
+        }
         .social-icon-circle {
             width: 36px;
             height: 36px;
@@ -236,6 +243,17 @@
 
         /* Responsif untuk HP */
         @media (max-width: 768px) {
+            .header-bar {
+                gap: 10px;
+                font-size: 18px;
+                padding: 12px 15px;
+            }
+
+            .btn-kembali {
+                font-size: 13px;
+                padding: 7px 14px;
+            }
+
             .content {
                 padding: 25px 20px;
                 gap: 30px;
@@ -269,6 +287,11 @@
         }
 
         @media (max-width: 480px) {
+            .header-bar {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
             .person-card {
                 width: 110px;
             }
@@ -281,16 +304,13 @@
 </head>
 <body>
     <div class="card-container">
-        <!-- Header -->
+        <!-- Header dengan Tombol Kembali Sejajar -->
         <div class="header-bar">
-            <div class="header-icon"></div>
+            <a href="index.html" class="btn-kembali">
+                <i class="fas fa-arrow-left"></i> Kembali 
+            </a>
             <span>Guru dan Karyawan</span>
         </div>
-
-        <!-- TOMBOL KEMBALI KE HALAMAN UTAMA -->
-        <a href="index.html" class="btn-kembali">
-            <i class="fas fa-arrow-left"></i> Kembali 
-        </a>
 
         <!-- Isi Konten -->
         <div class="content">
@@ -381,24 +401,24 @@
 
         </div>
 
-        <!-- FOOTER -->
-        <div class="footer-banner">
-            <div class="footer-left">
-                <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
-                <div class="footer-info-text">
-                    <h2>MA AN-NAJAH CILONGOK</h2>
-                    <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
-                </div>
-            </div>
-            
-            <div class="footer-social-icons">
-                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon-circle"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon-circle"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon-circle"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon-circle"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon-circle"><i class="fas fa-map-marker-alt"></i></a>
-            </div>
+     <!-- FOOTER -->
+     <footer class="footer-banner">
+        <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+        
+        <div class="footer-info">
+            <h2>MA AN-NAJAH CILONGOK</h2>
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya
+Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
         </div>
+
+        <div class="footer-social">
+            <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
+        </div>
+    </footer>
     </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Berita - MA An-Najah</title>
+    <title>Prestasi - MA An-Najah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * {
@@ -70,7 +70,8 @@
             letter-spacing: 0.3px;
         }
 
-        .news-grid {
+        /* Grid untuk kartu prestasi */
+        .achievement-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 18px;
@@ -78,7 +79,7 @@
             padding: 0 5px;
         }
 
-        .news-card {
+        .achievement-card {
             background-color: white;
             border-radius: 12px;
             padding: 15px;
@@ -89,7 +90,7 @@
             flex-direction: column;
         }
 
-        .news-title {
+        .achievement-title {
             font-size: 16px;
             font-weight: bold;
             color: #222;
@@ -97,14 +98,24 @@
             line-height: 1.5;
         }
 
-        /* Gaya untuk tanggal berita */
-        .news-date {
+        .achievement-meta {
             font-size: 12px;
             color: #666;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
             gap: 5px;
+        }
+
+        .medal-icon {
+            color: #d4af37; /* Warna emas */
         }
 
         .image-wrapper {
@@ -127,7 +138,7 @@
             transform: scale(1.03);
         }
 
-        .read-btn {
+        .detail-btn {
             position: absolute;
             bottom: 12px;
             right: 12px;
@@ -142,7 +153,7 @@
             transition: background-color 0.2s ease;
         }
 
-        .read-btn:hover {
+        .detail-btn:hover {
             background-color: #005a36;
         }
 
@@ -218,62 +229,86 @@
         <a href="index.html" class="back-btn">
             <i class="fa-solid fa-arrow-left"></i> Kembali
         </a>
-        <div class="title-box">Berita</div>
+        <div class="title-box">Prestasi</div>
     </div>
 
-    <section class="news-grid">
+    <section class="achievement-grid">
 
-        <div class="news-card">
-            <div class="news-title">Hari Ketiga MATSAMA MA An-Najah Cilongok</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 15 Juli 2024</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Juara 1 Lomba Pidato Bahasa Arab Tingkat Kabupaten</div>
+            <div class="achievement-meta">
+                <span class="meta-item medal-icon"><i class="fa-solid fa-medal"></i> Emas</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 20 Mei 2024</span>
+                <span class="meta-item"><i class="fa-solid fa-user"></i> Ahmad Fauzi</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita1.jpg" alt="Matsama Hari 3">
-                <a href="berita/berita1.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi1.jpg" alt="Juara 1 Pidato Bahasa Arab">
+                <a href="prestasi/prestasi1.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-title">Hari Kedua MATSAMA MA Ma'arif Cilongok</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 14 Juli 2024</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Juara 2 Lomba Cerdas Cermat Agama Tingkat Provinsi</div>
+            <div class="achievement-meta">
+                <span class="meta-item medal-icon" style="color:#c0c0c0;"><i class="fa-solid fa-medal"></i> Perak</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 12 April 2024</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> Tim MA An-Najah</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita2.jpg" alt="Matsama Hari 2">
-                <a href="berita2.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi2.jpg" alt="Juara 2 Cerdas Cermat Agama">
+                <a href="prestasi/prestasi2.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-title">Masa Ta'aruf MA An-Najah Cilongok</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 12 Juli 2024</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Juara 3 Lomba Kaligrafi Tingkat Kecamatan</div>
+            <div class="achievement-meta">
+                <span class="meta-item medal-icon" style="color:#cd7f32;"><i class="fa-solid fa-medal"></i> Perunggu</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 28 Maret 2024</span>
+                <span class="meta-item"><i class="fa-solid fa-user"></i> Siti Aminah</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita3.jpg" alt="Masa Ta'aruf">
-                <a href="berita3.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi3.jpg" alt="Juara 3 Kaligrafi">
+                <a href="prestasi/prestasi3.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-title">PEMERIKSAAN GOLONGAN DARAH MA AN-NAJAH CILONGOK</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 5 Juli 2024</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Terbaik 3 Lomba Pramuka Penggalang Tingkat Kabupaten</div>
+            <div class="achievement-meta">
+                <span class="meta-item"><i class="fa-solid fa-trophy"></i> Penghargaan</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 15 Februari 2024</span>
+                <span class="meta-item"><i class="fa-solid fa-users"></i> Tim Pramuka</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita4.jpg" alt="KBM Tahun Ajaran Baru">
-                <a href="berita4.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi4.jpg" alt="Prestasi Pramuka">
+                <a href="prestasi/prestasi4.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-title">Prestasi Siswa dalam Lomba Pidato Bahasa Arab</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 20 Juni 2024</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Juara 1 Lomba Baca Tulis Al-Qur'an Tingkat Kecamatan</div>
+            <div class="achievement-meta">
+                <span class="meta-item medal-icon"><i class="fa-solid fa-medal"></i> Emas</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 10 Januari 2024</span>
+                <span class="meta-item"><i class="fa-solid fa-user"></i> Muhammad Rizki</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita5.jpg" alt="Lomba Pidato">
-                <a href="berita5.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi5.jpg" alt="Juara 1 BTQ">
+                <a href="prestasi/prestasi5.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 
-        <div class="news-card">
-            <div class="news-title">PERINGATAN HUT RI KE-78</div>
-            <div class="news-date"><i class="fa-solid fa-calendar-days"></i> 17 Agustus 2023</div>
+        <div class="achievement-card">
+            <div class="achievement-title">Terbaik 2 Lomba Kebersihan Lingkungan Sekolah</div>
+            <div class="achievement-meta">
+                <span class="meta-item"><i class="fa-solid fa-award"></i> Penghargaan</span>
+                <span class="meta-item"><i class="fa-solid fa-calendar-days"></i> 5 Desember 2023</span>
+                <span class="meta-item"><i class="fa-solid fa-school"></i> MA An-Najah</span>
+            </div>
             <div class="image-wrapper">
-                <img src="assets/images/berita6.jpg" alt="PERINGATAN HUT RI KE-78">
-                <a href="berita6.html" class="read-btn">Baca Selengkapnya</a>
+                <img src="assets/images/prestasi6.jpg" alt="Prestasi Kebersihan">
+                <a href="prestasi/prestasi6.html" class="detail-btn">Lihat Detail</a>
             </div>
         </div>
 

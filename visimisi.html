@@ -65,7 +65,7 @@
             color: #555;
         }
 
-        /* Tombol Kembali - posisi di bawah, warna tetap merah */
+        /* Tombol Kembali */
         .btn-kembali {
             display: inline-flex;
             align-items: center;
@@ -89,37 +89,31 @@
             transform: none;
         }
 
-        /* Bagian Visi */
+        /* --- BAGIAN VISI (DISESUAIKAN SAMA DENGAN MISI) --- */
         .visi-section {
-            padding: 40px 30px 30px;
-            text-align: center;
+            padding: 30px;
+            margin: 40px 30px 20px; /* Margin sama persis dengan misi */
+            border-radius: 12px;
+            border: 2px solid #006636;
             position: relative;
+            background-color: #fbfbfb;
             max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .logo-circle {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: -50px auto 25px;
-            border: 3px solid #006636;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-        .logo-circle img {
-            width: 70px;
-            height: auto;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .judul-visi {
             font-size: 26px;
             color: #006636;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            background: white;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
             font-weight: bold;
+            width: 100%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             position: relative;
         }
 
@@ -137,12 +131,11 @@
             font-size: 16px;
             line-height: 1.8;
             color: #333;
-            background: #fbfbfb;
+            background: #ffffff;
             padding: 25px;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: justify;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
         .teks-visi .bahasa-inggris {
             margin-top: 20px;
@@ -153,7 +146,7 @@
             border-top: 1px dashed #e0e0e0;
         }
 
-        /* Bagian Misi */
+        /* --- BAGIAN MISI --- */
         .misi-section {
             padding: 30px;
             margin: 20px 30px 40px;
@@ -204,69 +197,67 @@
             margin-bottom: 12px;
         }
 
-        /* Footer */
+        /* FOOTER */
         .footer-banner {
-            background-color: #004225;
-            color: #fff;
-            padding: 25px 22px;
+            background-color: #005a36;
+            color: white;
+            padding: 40px 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            border-radius: 12px;
-            margin: 30px 0;
-            gap: 18px;
-            flex-wrap: wrap;
-            width: 100%;
+            text-align: center;
+            gap: 25px;
         }
 
         .footer-logo {
             width: 55px;
-            height: auto;
+            height: 55px;
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         .footer-info {
-            flex: 1;
-            min-width: 280px;
+            max-width: 750px;
         }
 
         .footer-info h2 {
-            font-size: 18px;
-            margin-bottom: 6px;
-            color: #ffcc00;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .footer-info p {
-            font-size: 13px;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 14.5px;
+            line-height: 1.7;
             opacity: 0.9;
-            line-height: 1.6;
+            white-space: pre-line;
         }
 
-        .social-links {
+        .footer-social {
             display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
         }
 
-        .social-icon {
-            color: #fff;
-            font-size: 18px;
-            width: 38px;
-            height: 38px;
-            background-color: rgba(255,255,255,0.15);
+        .footer-social a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            transition: all 0.3s ease;
-            text-decoration: none;
+            background-color: rgba(255,255,255,0.1);
         }
 
-        .social-icon:hover {
-            background-color: #ffcc00;
-            color: #004225;
-            transform: scale(1.1);
+        .footer-social a:hover {
+            transform: translateY(-3px);
+            background-color: #ffffff;
+            color: #005a36;
         }
 
         /* Responsif */
@@ -277,24 +268,13 @@
             .header-top {
                 gap: 12px;
             }
-            .visi-section {
-                padding: 30px 20px 25px;
-            }
-            .logo-circle {
-                width: 90px;
-                height: 90px;
-                margin: -45px auto 20px;
-            }
-            .logo-circle img {
-                width: 65px;
+            .visi-section, .misi-section {
+                margin: 20px;
+                padding: 25px 20px;
             }
             .teks-visi {
                 padding: 20px;
                 font-size: 15px;
-            }
-            .misi-section {
-                margin: 20px;
-                padding: 25px 20px;
             }
             .daftar-misi {
                 padding: 20px 20px 20px 35px;
@@ -332,16 +312,13 @@
                     <p>MA An-Najah Cilongok</p>
                 </div>
             </div>
-            <!-- Tombol Kembali di bawah logo dan teks -->
             <a href="index.html" class="btn-kembali">
                 <i class="fas fa-arrow-left"></i> Kembali
             </a>
         </div>
 
+        <!-- Bagian Visi yang sudah disesuaikan -->
         <div class="visi-section">
-            <div class="logo-circle">
-                <img src="assets/logo.jpg" alt="Logo MA An-Najah">
-            </div>
             <h2 class="judul-visi">Visi</h2>
             
             <div class="teks-visi">
@@ -363,18 +340,22 @@
             </ol>
         </div>
 
+        <!-- FOOTER -->
         <footer class="footer-banner">
             <img src="assets/logo.jpg" alt="Logo MA An-Najah" class="footer-logo">
+            
             <div class="footer-info">
                 <h2>MA AN-NAJAH CILONGOK</h2>
-                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+                <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya
+Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
             </div>
-            <div class="social-links">
-                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/6285851903488" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" class="social-icon"><i class="fas fa-map-marker-alt"></i></a>
+
+            <div class="footer-social">
+                <a href="https://www.tiktok.com/@madrasahaliyahannajah" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/maannajahcilongok" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1LHHm8qtXR/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/6285851903488" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
             </div>
         </footer>
     </div>
