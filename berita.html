@@ -138,74 +138,66 @@
 
         .footer-banner {
             background-color: #005a36;
-            border-radius: 12px;
             color: white;
-            padding: 20px 22px;
+            padding: 40px 30px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-top: auto;
-            width: 100%;
+            text-align: center;
+            gap: 25px;
         }
 
         .footer-logo {
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             object-fit: contain;
-            flex-shrink: 0;
         }
 
         .footer-info {
-            flex: 1;
-            min-width: 250px;
+            max-width: 750px;
         }
 
         .footer-info h2 {
-            font-size: 17px;
-            font-weight: bold;
-            margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 600;
         }
 
         .footer-info p {
-            font-size: 13px;
-            line-height: 1.6;
+            font-family: 'Open Sans', Arial, sans-serif;
+            font-size: 14.5px;
+            line-height: 1.7;
             opacity: 0.9;
+            white-space: pre-line;
         }
 
         .footer-social {
             display: flex;
-            gap: 18px;
-            margin-left: auto;
+            justify-content: center;
+            gap: 22px;
         }
 
         .footer-social a {
             color: white;
-            font-size: 20px;
+            font-size: 24px;
             text-decoration: none;
-            transition: transform 0.2s ease;
+            transition: all 0.25s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
         }
 
         .footer-social a:hover {
-            transform: scale(1.18);
+            transform: translateY(-3px);
+            background-color: #ffffff;
+            color: #005a36;
         }
 
-        @media (max-width: 768px) {
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            .top-bar {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .footer-banner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .footer-social {
-                margin: 10px auto 0;
-            }
-        }
     </style>
 </head>
 <body>
@@ -278,7 +270,8 @@
         
         <div class="footer-info">
             <h2>MA AN-NAJAH CILONGOK</h2>
-            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya, Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
+            <p>Pondok Pesantren An Najah, Jl. Kalipancur, RT.03/RW.03, Kedungsentrol, Rancamaya
+Kec. Cilongok, Kabupaten Banyumas, Jawa Tengah 53162</p>
         </div>
 
         <div class="footer-social">
@@ -289,6 +282,7 @@
             <a href="https://maps.app.goo.gl/T2KLbH7m4FAVmduU8" target="_blank" title="Lokasi"><i class="fas fa-map-marker-alt"></i></a>
         </div>
     </footer>
+
 </div>
 
 </body>
